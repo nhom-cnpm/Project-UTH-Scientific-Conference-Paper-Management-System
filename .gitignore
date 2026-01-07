@@ -1,0 +1,15 @@
+# Giấu cấu hình cá nhân của VS Code (Fix lỗi hình 15, 16)
+.vscode/
+
+# Giấu thư mục môi trường ảo (Sau khi bạn kéo venv ra ngoài CNPM)
+venv/
+
+# Giấu các thư viện Frontend (Để không bị lỗi khi push lên GitHub)
+node_modules/
+dist/
+
+# Giấu các file Database và môi trường của Django
+db.sqlite3
+.env
+__pycache__/
+*.pyc
