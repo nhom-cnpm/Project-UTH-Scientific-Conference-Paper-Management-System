@@ -49,6 +49,6 @@ function App() {
       {/* ===== END FE2 ===== */}
     </>
   );
+  return <ChairLayout />;
 }
-
 export default App;
