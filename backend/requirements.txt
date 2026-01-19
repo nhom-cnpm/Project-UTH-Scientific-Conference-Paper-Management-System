@@ -1,6 +1,10 @@
-django
-fastapi
-uvicorn
-djangorestframework
+Django==6.0
+djangorestframework==3.15.1
+
 django-mssql-backend
 pyodbc
+
+pytz
+sqlparse
+asgiref
+

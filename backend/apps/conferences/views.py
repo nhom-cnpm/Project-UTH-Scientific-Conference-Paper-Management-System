@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Conference
+from .serializers import ConferenceSerializer
 
-# Create your views here.
+class ConferenceViewSet(viewsets.ModelViewSet):
+    queryset = Conference.objects.all()
+    serializer_class = ConferenceSerializer
+
+
