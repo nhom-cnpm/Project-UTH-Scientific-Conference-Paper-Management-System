@@ -1,22 +1,18 @@
-import ReviewForm from "../../components/ReviewForm";
+import { useParams } from "react-router-dom";
+import { papers } from "../data/mockPapers";
+import ReviewForm from "../components/ReviewForm";
 
 export default function PaperDetail() {
+  const { id } = useParams();
+  const paper = papers.find((p) => p.id === Number(id));
+
+  if (!paper) return <p>Paper not found</p>;
+
   return (
     <div>
-      <h2>Paper Detail</h2>
+      <h3>{paper.title}</h3>
 
-      <div
-        style={{
-          height: 300,
-          border: "1px solid gray",
-          marginBottom: 20,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        PDF Viewer (mock)
-      </div>
+      <iframe src={paper.pdf} width="100%" height="500px" title="PDF Viewer" />
 
       <ReviewForm />
     </div>

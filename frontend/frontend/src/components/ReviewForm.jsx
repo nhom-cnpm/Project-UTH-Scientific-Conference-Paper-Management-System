@@ -1,27 +1,39 @@
+import { useState } from "react";
+
 export default function ReviewForm() {
+  const [score, setScore] = useState("");
+  const [comment, setComment] = useState("");
+
+  const submitReview = () => {
+    alert(`Submitted: Score ${score}, Comment: ${comment}`);
+  };
+
   return (
-    <form>
-      <h3>Submit Review</h3>
+    <div>
+      <h4>Review Form</h4>
 
-      <label>Score:</label>
-      <select>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-
+      <label>Score (1-10)</label>
       <br />
-      <br />
-
-      <label>Comment:</label>
-      <br />
-      <textarea rows="4" cols="40" />
+      <input
+        type="number"
+        value={score}
+        onChange={(e) => setScore(e.target.value)}
+      />
 
       <br />
       <br />
-      <button type="submit">Submit</button>
-    </form>
+
+      <label>Comment</label>
+      <br />
+      <textarea
+        rows="4"
+        value={comment}
+        onChange={(e) => setComment(e.target.value)}
+      />
+
+      <br />
+      <br />
+      <button onClick={submitReview}>Submit Review</button>
+    </div>
   );
 }
