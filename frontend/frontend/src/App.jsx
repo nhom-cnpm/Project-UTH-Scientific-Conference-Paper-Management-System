@@ -6,16 +6,45 @@ import "./App.css";
 {
   /* ===== FE2 – Level 1 (Added) ===== */
 }
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ReviewerLayout from "./layouts/ReviewerLayout";
 import ChairLayout from "./layouts/ChairLayout";
-import ReviewerPaperList from "./pages/reviewer/ReviewerPaperList";
-import ChairPaperList from "./pages/chair/ChairPaperList";
+import ReviewerPaperList from "./pages/ReviewerPaperList";
+import PaperDetail from "./pages/PaperDetail";
+import ChairPaperList from "./pages/ChairPaperList";
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+
+        <Route path="/reviewer" element={
+          <ReviewerLayout>
+            <ReviewerPaperList />
+          </ReviewerLayout>
+        } />
+
+        <Route path="/paper/:id" element={
+          <ReviewerLayout>
+            <PaperDetail />
+          </ReviewerLayout>
+        } />
+
+        <Route path="/chair" element={
+          <ChairLayout>
+            <ChairPaperList />
+          </ChairLayout>
+        } />
+
+      </Routes>
+    </BrowserRouter>
+  );
+}
 {
   /* ===== FE2 ====*/
 }
 function App() {
   const [count, setCount] = useState(0);
-=======
+
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -23,7 +52,7 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
->>>>>>> 64f371212420c65bb10c96cc961454fff3857a4c
+/*>>>>>>> 64f371212420c65bb10c96cc961454fff3857a4c*/
 
   return (
     <>
@@ -48,16 +77,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
 <<<<<<< HEAD
-      {/* ===== FE2 – Level 1 (Added) ===== */}
-      <hr />
-      <ReviewerLayout>
-        <ReviewerPaperList />
-      </ReviewerLayout>
-      <hr />
-      <ChairLayout>
-        <ChairPaperList />
-      </ChairLayout>
-      {/* ===== END FE2 ===== */}
+
     </>
   );
   return <ChairLayout />;
@@ -69,4 +89,4 @@ export default App;
 }
 
 export default App
->>>>>>> 64f371212420c65bb10c96cc961454fff3857a4c
+/*>>>>>>> 64f371212420c65bb10c96cc961454fff3857a4c*/

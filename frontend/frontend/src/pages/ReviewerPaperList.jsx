@@ -1,17 +1,16 @@
-const mockPapers = [
-  { id: 1, title: "Paper A", track: "AI" },
-  { id: 2, title: "Paper B", track: "SE" },
-];
+import { Link } from "react-router-dom";
+import { papers } from "../data/mockPapers";
 
 export default function ReviewerPaperList() {
   return (
     <div>
-      <h2>Assigned Papers</h2>
-
+      <h3>Assigned Papers</h3>
       <ul>
-        {mockPapers.map((paper) => (
-          <li key={paper.id}>
-            <b>{paper.title}</b> – Track: {paper.track}
+        {papers.map((p) => (
+          <li key={p.id}>
+            {p.title}
+            {" | "}
+            <Link to={`/paper/${p.id}`}>Review</Link>
           </li>
         ))}
       </ul>
