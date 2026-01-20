@@ -12,7 +12,9 @@ import ChairLayout from "./layouts/ChairLayout";
 import ReviewerPaperList from "./pages/ReviewerPaperList";
 import PaperDetail from "./pages/PaperDetail";
 import ChairPaperList from "./pages/ChairPaperList";
+import Login from "./pages/Login";
 export default function App() {
+  return <Login />;
   return (
     <BrowserRouter>
       <Routes>
