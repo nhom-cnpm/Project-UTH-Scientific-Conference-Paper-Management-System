@@ -10,32 +10,37 @@ import ChairLayout from "./layouts/ChairLayout";
 import ReviewerPaperList from "./pages/ReviewerPaperList";
 import PaperDetail from "./pages/PaperDetail";
 import Login from "./pages/Login";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Route cho Login */}
+        {/* 1. Trang chủ hiện ngay lập tức tại đường dẫn gốc */}
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
 
-        {/* Route dành cho Reviewer */}
+        {/* 2. Trang đăng nhập */}
+        <Route path="/login" element={<Login />} />
+
+        {/* 3. Chuyển Dashboard sang một đường dẫn riêng (ví dụ: /dashboard) */}
+        <Route path="/dashboard" element={<DashboardLayout />}>
+           {/* Các route con của dashboard đặt ở đây */}
+        </Route>
+
+        {/* 4. Route dành cho Reviewer */}
         <Route path="/reviewer" element={<ReviewerLayout />}>
           <Route index element={<Navigate to="papers" />} />
           <Route path="papers" element={<ReviewerPaperList />} />
           <Route path="paper/:id" element={<PaperDetail />} />
         </Route>
 
-        {/* Route dành cho Chair */}
+        {/* 5. Route dành cho Chair */}
         <Route path="/chair" element={<ChairLayout />}>
           {/* Thêm các trang của Chair vào đây */}
         </Route>
 
-        {/* Route mặc định (Dashboard) */}
-        <Route path="/" element={<DashboardLayout />}>
-          {/* Các nội dung mặc định của Dashboard */}
-        </Route>
-
-        {/* Redirect nếu không tìm thấy trang */}
+        {/* Redirect nếu nhập sai đường dẫn: quay về trang chủ Home */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
