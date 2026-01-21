@@ -1,0 +1,59 @@
+.login-container {
+  height: 100vh;
+  background-image: url("/uth-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.login-overlay {
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 120px;
+}
+
+.login-box {
+  width: 360px;
+  background-color: #39b7b2;
+  padding: 32px;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 24px;
+  font-size: 20px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff4d4f;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  opacity: 0.9;
+}
+
+.forgot-password {
+  margin-top: 12px;
+  font-size: 12px;
+  cursor: pointer;
+}

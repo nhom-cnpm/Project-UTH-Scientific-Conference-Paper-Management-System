@@ -1,30 +1,66 @@
-import "./Login.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../styles/login.css";
 
-const Login = () => {
+export default function Login() {
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // ===== MOCK AUTHENTICATION =====
+    if (form.username === "reviewer") {
+      navigate("/reviewer");
+    } else if (form.username === "chair") {
+      navigate("/chair");
+    } else {
+      alert("Invalid username or password");
+    }
+  };
+
   return (
     <div className="login-container">
-      {/* Header */}
-      <div className="login-header">UTH - COMFMS</div>
-
-      {/* Background */}
-      <div className="login-background">
-        {/* Login Card */}
-        <div className="login-card">
+      <div className="login-overlay">
+        <div className="login-box">
           <h2>LOG IN TO THE SYSTEM</h2>
 
-          <input type="text" placeholder="Email / Username" />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="username"
+              placeholder="Email / Username"
+              value={form.username}
+              onChange={handleChange}
+              required
+            />
 
-          <input type="password" placeholder="Password" />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={form.password}
+              onChange={handleChange}
+              required
+            />
 
-          <button className="login-btn">LOGIN</button>
+            <button type="submit">LOGIN</button>
+          </form>
 
-          <a href="#" className="forgot-password">
-            FORGOT PASSWORD?
-          </a>
+          <p className="forgot-password">FORGOT PASSWORD?</p>
         </div>
       </div>
     </div>
   );
-};
-
-export default Login;
+}
