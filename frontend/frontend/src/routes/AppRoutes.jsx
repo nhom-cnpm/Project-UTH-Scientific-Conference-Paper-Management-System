@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
 
+import DashboardLayout from "./layouts/DashboardLayout";
 import ReviewerLayout from "../layouts/ReviewerLayout";
 import ChairLayout from "../layouts/ChairLayout";
 
