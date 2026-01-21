@@ -1,12 +1,16 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import DashboardLayout from './layouts/DashboardLayout';
-import ReviewerLayout from './layouts/ReviewerLayout';
-import ChairLayout from './layouts/ChairLayout';
-import ReviewerPaperList from './pages/ReviewerPaperList';
-import PaperDetail from './pages/PaperDetail';
-import Login from './pages/Login';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import DashboardLayout from "./layouts/DashboardLayout";
+import ReviewerLayout from "./layouts/ReviewerLayout";
+import ChairLayout from "./layouts/ChairLayout";
+import ReviewerPaperList from "./pages/ReviewerPaperList";
+import PaperDetail from "./pages/PaperDetail";
+import Login from "./pages/Login";
 
-// Bạn có thể bổ sung các file khác vào đây tùy theo dự án
 function App() {
   return (
     <Router>
