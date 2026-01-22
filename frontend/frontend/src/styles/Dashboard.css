@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ===== PAGE ===== */
+.dashboard-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f4f7fa;
+}
+
+/* ===== HEADER ===== */
+.dashboard-header {
+  height: 64px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  border-bottom: 1px solid #e3e8ec;
+}
+
+.logo {
+  color: #3bb7b4;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.dashboard-nav span {
+  margin: 0 16px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+.dashboard-nav span:hover {
+  color: #3bb7b4;
+}
+
+.admin-badge {
+  background: #3bb7b4;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* ===== MAIN ===== */
+.dashboard-main {
+  flex: 1;
+  text-align: center;
+  padding: 80px 20px;
+  background: #eef7f8;
+}
+
+.dashboard-main h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.dashboard-main h1 span {
+  color: #3bb7b4;
+}
+
+.dashboard-desc {
+  color: #666;
+  font-size: 15px;
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+
+/* ===== CARD ===== */
+.dashboard-card {
+  background: white;
+  width: 420px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  font-size: 15px;
+}
+
+.dashboard-card a {
+  color: #3bb7b4;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ===== FOOTER ===== */
+.dashboard-footer {
+  height: 48px;
+  background: #183515;
+  color: white;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
