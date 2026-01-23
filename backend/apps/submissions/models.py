@@ -1,5 +1,6 @@
 from django.db import models
 
+<<<<<<< HEAD
 # Create your models here.
 class Submission(models.Model):
     STATUS_CHOICES = [
@@ -22,3 +23,6 @@ class Submission(models.Model):
         null=True,
         blank=True
     )
+=======
+# Create your models here.
+>>>>>>> main
