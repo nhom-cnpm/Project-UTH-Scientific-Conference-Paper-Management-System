@@ -11,6 +11,9 @@ import ReviewerPaperList from "./pages/ReviewerPaperList";
 import PaperDetail from "./pages/PaperDetail";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import ConferenceManage from "./pages/ConferenceManage";
+import Dashboard from "./pages/Dashboard";
+
 
 function App() {
   return (
@@ -24,9 +27,10 @@ function App() {
         <Route path="/login" element={<Login />} />
 
         {/* 3. Chuyển Dashboard sang một đường dẫn riêng (ví dụ: /dashboard) */}
-        <Route path="/dashboard" element={<DashboardLayout />}>
+        <Route path="/dashboard" element={<Dashboard />}>
            {/* Các route con của dashboard đặt ở đây */}
         </Route>
+
 
         {/* 4. Route dành cho Reviewer */}
         <Route path="/reviewer" element={<ReviewerLayout />}>
@@ -38,6 +42,10 @@ function App() {
         {/* 5. Route dành cho Chair */}
         <Route path="/chair" element={<ChairLayout />}>
           {/* Thêm các trang của Chair vào đây */}
+        </Route>
+
+        {/*6. Phần ConferenceManager*/}
+        <Route path="/ConferenceManager" element={<ConferenceManage />}>
         </Route>
 
         {/* Redirect nếu nhập sai đường dẫn: quay về trang chủ Home */}

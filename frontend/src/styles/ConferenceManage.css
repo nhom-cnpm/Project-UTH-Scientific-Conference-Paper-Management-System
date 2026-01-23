@@ -1,0 +1,155 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ===== PAGE ===== */
+.admin-page {
+  min-height: 100vh;
+  background: #f4f7fa;
+}
+
+/* ===== HEADER ===== */
+.logo {
+    color: #37B5B5;
+    font-size: 24px;
+    font-weight: bold;
+} 
+
+.admin-header {
+  height: 60px;
+  background: #3bb7b4;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.admin-header .logo {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;          /* BẮT BUỘC */
+  letter-spacing: 1px;
+}
+
+
+.admin-user {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* ===== BODY ===== */
+.admin-body {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+/* ===== SIDEBAR ===== */
+.admin-sidebar {
+  width: 260px;
+  background: #f8fcfc;
+  border-right: 1px solid #dfeaea;
+  padding: 20px;
+}
+
+.menu-item {
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+.menu-item:hover {
+  background: #e6f6f5;
+}
+
+.menu-item.active {
+  background: #3bb7b4;
+  color: white;
+}
+
+/* ===== CONTENT ===== */
+.admin-content {
+  flex: 1;
+  padding: 30px;
+}
+
+/* CARD */
+.content-card {
+  background: #f1f6f9;
+  border-radius: 20px;
+  padding: 30px;
+  height: 100%;
+}
+
+/* ===== TABS ===== */
+.conference-tabs {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.tab {
+  padding: 12px 20px;
+  border-radius: 20px;
+  background: #ffffff;
+  font-size: 15px;
+  cursor: pointer;
+  color: #555;
+}
+
+.tab.active {
+  background: #e6f6f5;
+  color: #2aa6a2;
+  font-weight: 600;
+}
+
+/* ===== FORM ===== */
+.conference-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 800px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.form-row label {
+  width: 120px;
+  font-size: 15px;
+  color: #333;
+}
+
+.form-row input,
+.form-row textarea {
+  flex: 1;
+  background: #eaf5f6;
+  border: 1px solid #9fbcbc;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-row textarea {
+  resize: none;
+  height: 120px;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  border-color: #3bb7b4;
+}
