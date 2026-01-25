@@ -23,3 +23,11 @@ def decision_submission(submission_id: int, decision: str):
         }
     except Submission.DoesNotExist:
         raise HTTPException(404, "Submission not found")
+    
+@router.get("/{submission_id}/status")
+def submission_status(submission_id: int):
+    submission = Submission.objects.filter(id=submission_id)
+    return{
+        "status": submission.status,
+        "paper_id": submission.paper_id
+    }
