@@ -14,7 +14,8 @@ class Submission(models.Model):
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,
-        default="submitted"
+        default="submitted",
+        db_index = True
     )
     paper_id=models.CharField(max_length=30, null=True, blank=True)
     camera_ready_dealine = models.DateTimeField(null=True, blank=True)
@@ -23,6 +24,9 @@ class Submission(models.Model):
         null=True,
         blank=True
     )
+    created_at = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        indexes = [models.Index(fields=["status"]),]
 =======
 # Create your models here.
 >>>>>>> main
