@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from apps.submissions.models import Submission
 from apps.submissions.services import change_status
-router = APIRouter(prefix="/submissions", tags=["Submissions"])
+router = APIRouter(prefix="/submissions", tags=["Decision"])
 @router.post("/{submission_id}/decision")
 def decision_submission(submission_id: int, decision: str):
     if decision not in ["accept", "reject"]:
@@ -16,9 +16,9 @@ def decision_submission(submission_id: int, decision: str):
             "paper_code": submission.paper_id
         }
     except Submission.DoesNotExist:
-        raise HTTPException(404, "Submission not found")
+        raise HTTPException(404, detail="Submission not found")
     except ValueError as e:
-        raise HTTPException(400, str(e))
+        raise HTTPException(400, detail=str(e))
     
 # @router.get("/{submission_id}/status")
 # def submission_status(submission_id: int):
