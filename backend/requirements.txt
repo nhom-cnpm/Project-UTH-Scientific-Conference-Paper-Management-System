@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Django==6.0.1
+=======
+Django==6.0
+>>>>>>> e72e2a9 (BE3: Review APIs + project config fixes)
 djangorestframework==3.15.1
 
 django-mssql-backend
@@ -6,5 +10,9 @@ pyodbc
 
 pytz
 sqlparse
+<<<<<<< HEAD
 asgiref
 
+=======
+aspire
+>>>>>>> e72e2a9 (BE3: Review APIs + project config fixes)
