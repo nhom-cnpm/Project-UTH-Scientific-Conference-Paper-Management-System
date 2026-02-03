@@ -1,0 +1,93 @@
+/* Container chính chứa toàn bộ trang */
+.login-container {
+  height: 100vh;
+  width: 100%;
+  background-image: url("/uth-bg.jpg");
+  background-size: 100% auto;
+  background-position: center;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.header-bar {
+  background-color: #39b7b2;
+  color: white;
+  padding: 12px 25px;
+  font-weight: bold;
+  font-size: 18px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10%;
+}
+
+.login-box {
+  width: 360px;
+  background-color: #39b7b2;
+  padding: 40px 32px;
+  border-radius: 25px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.login-box h2 {
+  margin-bottom: 30px;
+  font-size: 22px;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 14px;
+  background-color: #ff4d4f;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+.login-box button:hover {
+  background-color: #ff7875;
+}
+
+.forgot-password {
+  margin-top: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  opacity: 0.9;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}

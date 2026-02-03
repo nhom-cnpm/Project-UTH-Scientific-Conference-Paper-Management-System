@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-g1hfzvpw*j+!615h@0#7t6ote@sb!^eqkig_3=egy$ux=kn@%y
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -53,13 +53,13 @@ INSTALLED_APPS = [
     
 
     # Local Apps (Các App bạn vừa tạo trong thư mục apps/)
-    'accounts',
-    'conferences',
-    'submissions',
-    'reviews',
-    'notifications',
-    'proceedings',
-    'ai_assistant',
+    'apps.accounts',
+    'apps.conferences',
+    'apps.submissions',
+    'apps.reviews',
+    'apps.notifications',
+    'apps.proceedings',
+    'apps.ai_assistant',
 ]
 
 MIDDLEWARE = [
@@ -97,10 +97,18 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',
+        'NAME': 'Conference',   
+        'USER': 'sa',      
+        'PASSWORD': '123456',
+        'HOST': 'LAPTOP-6R6QNJFA\\MSSQLSERVER1',
+        'PORT': '1433',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+        },
     }
 }
+
 
 
 # Password validation
