@@ -51,7 +51,7 @@ const Home = () => {
             status="Sắp mở"
             badgeClass="upcoming"
             timeLeft="Bắt đầu: 01/02"
-            title="Ngành đường sắt tốc độ cao hiện nay"
+            title="Đề tài 2:"
             desc="Chủ đề: Phương pháp tìm kiếm và đánh giá"
             deadline="31/02/2026"
           />

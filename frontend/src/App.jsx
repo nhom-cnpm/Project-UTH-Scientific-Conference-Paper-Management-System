@@ -21,34 +21,28 @@ function App() {
       <Routes>
         {/* 1. Trang chủ hiện ngay lập tức tại đường dẫn gốc */}
         <Route path="/" element={<Home />} />
+
+        {/* Đăng nhập */}
         <Route path="/login" element={<Login />} />
 
-        {/* 2. Trang đăng nhập */}
-        <Route path="/login" element={<Login />} />
-
-        {/* 3. Chuyển Dashboard sang một đường dẫn riêng (ví dụ: /dashboard) */}
-        <Route path="/dashboard" element={<Dashboard />}>
-           {/* Các route con của dashboard đặt ở đây */}
+        {/* Dashboard - Chair */}
+        <Route path="/chair" element={<ChairLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="conference" element={<ConferenceManage />} />
         </Route>
 
-
-        {/* 4. Route dành cho Reviewer */}
+        {/* Dashboard - Reviewer */}
         <Route path="/reviewer" element={<ReviewerLayout />}>
-          <Route index element={<Navigate to="papers" />} />
-          <Route path="papers" element={<ReviewerPaperList />} />
+          <Route index element={<ReviewerPaperList />} />
           <Route path="paper/:id" element={<PaperDetail />} />
         </Route>
 
-        {/* 5. Route dành cho Chair */}
-        <Route path="/chair" element={<ChairLayout />}>
-          {/* Thêm các trang của Chair vào đây */}
+        {/* Dashboard chung */}
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index element={<Dashboard />} />
         </Route>
 
-        {/*6. Phần ConferenceManager*/}
-        <Route path="/ConferenceManager" element={<ConferenceManage />}>
-        </Route>
-
-        {/* Redirect nếu nhập sai đường dẫn: quay về trang chủ Home */}
+        {/* Route không tồn tại */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
