@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/Home.css";
+import "../styles/Trangchu.css";
 
 const Home = () => {
   return (
@@ -8,7 +8,7 @@ const Home = () => {
 
       {/* Navbar */}
       <div className="navbar">
-        <div className="logo">UTH - COMFMS</div>
+        <div className="logo">UTH - COMFMS</div>  
 
         <div className="nav-links">
           <a href="#">HƯỚNG DẪN</a>

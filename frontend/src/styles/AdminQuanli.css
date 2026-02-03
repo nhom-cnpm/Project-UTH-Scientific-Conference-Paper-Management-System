@@ -1,0 +1,358 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.admin-layout {
+  display: flex;
+  height: 100vh;
+  background: #f4f7f8;
+}
+
+/* SIDEBAR */
+.admin-sidebar {
+  width: 240px;
+  background: #ffffff;
+  border-radius: 16px;
+  margin: 16px;
+  padding: 20px;
+}
+
+.logo {
+  color: #2fb6b0;
+  margin-bottom: 24px;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.sidebar-menu li.active {
+  background: #2fb6b0;
+  color: white;
+  font-weight: 600;
+}
+
+/* MAIN */
+.admin-main {
+  flex: 1;
+  margin: 16px 16px 16px 0;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+/* TABS */
+.conf-tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  padding-bottom: 6px;
+}
+
+.tab.active {
+  color: #2fb6b0;
+  border-bottom: 3px solid #2fb6b0;
+  font-weight: 600;
+}
+
+/* CONTENT */
+.conf-content {
+  background: #eef5f6;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* FORM */
+.form-box {
+  max-width: 520px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.btn-primary {
+  margin-top: 10px;
+  background: #2fb6b0;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.hint-text {
+  color: #777;
+  font-style: italic;
+}
+/* ===================== */
+/* PHÂN QUYỀN – RBAC */
+/* ===================== */
+
+.rbac-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.rbac-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ===== TABLE ===== */
+.rbac-table {
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.rbac-table th,
+.rbac-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.rbac-table th {
+  background: #f3fdfb;
+  font-weight: 600;
+  color: #333;
+}
+
+.rbac-table tr:hover {
+  background: #f9fefe;
+}
+
+/* ===== SELECT ROLE ===== */
+.rbac-table select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  background: #fff;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.rbac-table select:focus {
+  outline: none;
+  border-color: #2cb1a1;
+}
+
+/* ===== STATUS ===== */
+.status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status.online {
+  background: #e6faf3;
+  color: #1b8a5a;
+}
+
+.status.offline {
+  background: #fdeaea;
+  color: #c0392b;
+}
+
+/* ===== ACTION ===== */
+.action {
+  color: #2cb1a1;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.action:hover {
+  text-decoration: underline;
+}
+
+/* ===== PAGINATION ===== */
+.pagination {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.pagination button {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #2cb1a1;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ===================== */
+/* PHÂN QUYỀN – TABLE UI */
+/* ===================== */
+
+/* Wrapper bảng */
+.rbac-table {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 14px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+.rbac-table thead th {
+  background: #f3fffd;
+  font-weight: 600;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #222;
+}
+
+/* Cell */
+.rbac-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Hover row */
+.rbac-table tbody tr:hover {
+  background: #f9fefe;
+}
+
+/* User name */
+.rbac-table td:first-child {
+  font-weight: 600;
+  color: #0a2540;
+}
+
+/* Email nhạt hơn */
+.rbac-table td:nth-child(2) {
+  color: #667085;
+  font-size: 13px;
+}
+
+/* ===== STATUS BADGE ===== */
+.status {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.online {
+  background: #e6faf3;
+  color: #14b8a6;
+}
+
+.status.offline {
+  background: #f2f2f2;
+  color: #8a8a8a;
+}
+
+/* ===== ACTION ===== */
+.action {
+  color: #14b8a6;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.action:hover {
+  text-decoration: underline;
+}
+
+/* ===================== */
+/* PAGINATION */
+/* ===================== */
+
+.pagination {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.pagination button {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: none;
+  background: #14b8a6;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 14px;
+  font-weight: 600;
+}
+.rbac-table thead th {
+  text-align: center;
+}
+
+.rbac-table tbody td {
+  text-align: center;
+}
+
+.rbac-table tbody td:first-child {
+  text-align: left; /* tên user vẫn canh trái */
+}
