@@ -37,7 +37,7 @@ export default function ChairPaperList() {
           <ul>
             {p.reviewers.map((r, i) => (
               <li key={i}>
-                {r.name}: {r.score} – {r.comment}
+                {r.name}: {r.score}  {r.comment}
               </li>
             ))}
           </ul>

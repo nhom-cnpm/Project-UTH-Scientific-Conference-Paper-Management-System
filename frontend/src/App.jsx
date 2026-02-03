@@ -10,39 +10,27 @@ import ChairLayout from "./layouts/ChairLayout";
 import ReviewerPaperList from "./pages/ReviewerPaperList";
 import PaperDetail from "./pages/PaperDetail";
 import Login from "./pages/Login";
-import Home from "./pages/Home";
-import ConferenceManage from "./pages/ConferenceManage";
-import Dashboard from "./pages/Dashboard";
-
+import Trangchu from "./pages/Trangchu";
+import TrangcuaQtvien from "./TrangcuaQtvien";
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* 1. Trang chủ hiện ngay lập tức tại đường dẫn gốc */}
-        <Route path="/" element={<Home />} />
-
-        {/* Đăng nhập */}
+        <Route path="/" element={<Trangchu />} />
         <Route path="/login" element={<Login />} />
 
-        {/* Dashboard - Chair */}
-        <Route path="/chair" element={<ChairLayout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="conference" element={<ConferenceManage />} />
-        </Route>
+        <Route path="/admin" element={<TrangcuaQtvien />} />
 
-        {/* Dashboard - Reviewer */}
+        {/* CHAIR */}
+        <Route path="/chair" element={<ChairLayout />} />
+
+        {/* REVIEWER */}
         <Route path="/reviewer" element={<ReviewerLayout />}>
           <Route index element={<ReviewerPaperList />} />
           <Route path="paper/:id" element={<PaperDetail />} />
         </Route>
 
-        {/* Dashboard chung */}
-        <Route path="/dashboard" element={<DashboardLayout />}>
-          <Route index element={<Dashboard />} />
-        </Route>
-
-        {/* Route không tồn tại */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
