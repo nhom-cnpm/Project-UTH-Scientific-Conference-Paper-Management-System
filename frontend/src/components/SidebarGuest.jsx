@@ -1,36 +1,22 @@
 import React from "react";
+import "../styles/SidebarGuest.css"; // Đảm bảo đường dẫn này đúng với cấu trúc của bạn
 
-const Sidebar = () => {
+const SidebarGuest = ({ activePage }) => {
   const menuItems = [
-    { name: "Home", active: false },
-    { name: "My submission", active: true }, // Đang chọn mục này
-    { name: "Notification", active: false },
-    { name: "Personal profile", active: false },
-    { name: "Logout", active: false },
+    { name: "Home" },
+    { name: "My submission" },
+    { name: "Notification" },
+    { name: "Personal profile" },
+    { name: "Logout" },
   ];
 
   return (
-    <div
-      style={{
-        width: "250px",
-        backgroundColor: "#f0f7f7",
-        height: "100vh",
-        padding: "20px",
-      }}
-    >
-      <ul style={{ listStyle: "none", padding: 0, marginTop: "50px" }}>
+    <div className="sidebar-container">
+      <ul className="sidebar-menu">
         {menuItems.map((item, index) => (
           <li
             key={index}
-            style={{
-              padding: "12px 20px",
-              marginBottom: "10px",
-              borderRadius: "8px",
-              cursor: "pointer",
-              backgroundColor: item.active ? "#e0e7ff" : "transparent",
-              color: item.active ? "#3b82f6" : "#333",
-              fontWeight: item.active ? "bold" : "normal",
-            }}
+            className={`menu-item ${item.name === activePage ? "active" : ""}`}
           >
             {item.name}
           </li>
@@ -40,4 +26,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SidebarGuest;
