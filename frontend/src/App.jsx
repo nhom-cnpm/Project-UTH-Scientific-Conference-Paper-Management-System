@@ -28,7 +28,7 @@ function App() {
         <Route path="/adminPhanquyen" element={<TrangcuaQtvien />} />
         <Route path="/conference-manage" element={<AdminQuanli />} />
         <Route path="/conference-manage/edit" element={<EditUser />} />
-
+    q
         {/* CHAIR */}
         <Route path="/chair" element={<ChairLayout />} />
 

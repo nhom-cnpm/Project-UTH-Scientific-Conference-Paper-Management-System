@@ -11,56 +11,56 @@ const Home = () => {
         <div className="logo">UTH - COMFMS</div>  
 
         <div className="nav-links">
-          <a href="#">HƯỚNG DẪN</a>
-          <a href="#">KẾT QUẢ</a>
-          <a href="#">QUY ĐỊNH</a>
+          <a href="#">GUIDELINES</a>
+          <a href="#">RESULTS</a>
+          <a href="#">REGULATIONS</a>
 
           <Link to="/login" className="btn-login">
-            ĐĂNG NHẬP
+            LOGIN
           </Link>
         </div>
       </div>
 
       {/* Hero */}
       <div className="hero">
-        <h1>Thúc đẩy sáng tạo thông qua</h1>
-        <div className="highlight">Nghiên cứu khoa học</div>
+        <h1>Empowering Innovation Through</h1>
+        <div className="highlight">Scientific Research</div>
         <p className="subtitle">
-          Nền tảng nộp bài, quản lý và đánh giá các báo cáo khoa học dành cho sinh viên và giảng viên.
+          The ultimate platform for submitting, managing, and evaluating scientific reports for students and faculty.
         </p>
       </div>
 
       {/* Events */}
       <div className="events-section">
         <div className="section-header">
-          <h2>Các sự kiện khoa học đang diễn ra</h2>
-          <a href="#" className="view-all">Xem tất cả →</a>
+          <h2>Ongoing Scientific Events</h2>
+          <a href="#" className="view-all">View all →</a>
         </div>
 
         <div className="event-grid">
           <EventCard
-            status="Đang mở"
+            status="Open"
             badgeClass="open"
-            timeLeft="Còn 5 ngày"
-            title="Nghiên cứu khoa học và đổi mới sáng tạo"
-            desc="Chủ đề: Ứng dụng công nghệ vào đời sống"
-            deadline="11/01/2026"
+            timeLeft="5 days left"
+            title="Scientific Research and Innovation"
+            desc="Topic: Applying technology to daily life"
+            deadline="01/11/2026"
           />
 
           <EventCard
-            status="Sắp mở"
+            status="Upcoming"
             badgeClass="upcoming"
-            timeLeft="Bắt đầu: 01/02"
-            title="Đề tài 2:"
-            desc="Chủ đề: Phương pháp tìm kiếm và đánh giá"
-            deadline="31/02/2026"
+            timeLeft="Starts: Feb 01"
+            title="Project Topic 2:"
+            desc="Topic: Search and Evaluation Methodologies"
+            deadline="02/31/2026"
           />
         </div>
       </div>
 
       {/* Footer */}
       <div className="footer">
-        Trường Đại học Giao thông vận tải TP.HCM
+        Ho Chi Minh City University of Transport (UTH)
       </div>
 
     </div>
@@ -78,8 +78,8 @@ const EventCard = ({ status, badgeClass, timeLeft, title, desc, deadline }) => (
     <p className="card-desc">{desc}</p>
 
     <div className="card-footer">
-      <span>Hạn cuối: {deadline}</span>
-      <button className="btn-detail">Chi tiết</button>
+      <span>Deadline: {deadline}</span>
+      <button className="btn-detail">Details</button>
     </div>
   </div>
 );
