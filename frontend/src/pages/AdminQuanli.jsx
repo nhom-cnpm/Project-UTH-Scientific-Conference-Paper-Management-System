@@ -7,7 +7,7 @@ const USERS_PER_PAGE = 10;
 /* ===== MOCK USERS ===== */
 const mockUsers = Array.from({ length: 20 }, (_, i) => ({
   id: i + 1,
-  name: `John Doe ${String.fromCharCode(65 + i)}`,
+  name: `Nguyen Van ${String.fromCharCode(65 + i)}`,
   email: `user${i + 1}@ut.edu.vn`,
   tenant: i < 10 ? "Tenant A" : "Tenant B",
   role: i % 3 === 0 ? "Admin" : i % 3 === 1 ? "Reviewer" : "Student",
@@ -40,7 +40,9 @@ const [aiEnabled, setAiEnabled] = useState(true);
     <div className="admin-layout">
       {/* ===== SIDEBAR ===== */}
       <aside className="admin-sidebar">
-        <h2 className="logo">UTH - COMFMS</h2>
+        <Link to="/" className="logo-link">
+        <div className="logo">UTH - COMFMS</div>
+        </Link>
 
         <ul className="sidebar-menu">
           <li
@@ -171,12 +173,9 @@ const [aiEnabled, setAiEnabled] = useState(true);
                       </span>
                     </td>
                     <td>
-                      <Link
-                        to={`/conference-manage/Edit/${u.id}`}
-                        className="edit-link"
-                      >
-                        Edit
-                      </Link>
+                     <Link to={`/edituser/${u.id}`} className="edit-link">
+                     Edit
+                     </Link>
                     </td>
                   </tr>
                 ))}

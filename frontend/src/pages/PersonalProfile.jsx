@@ -1,5 +1,5 @@
 import React from "react";
-import SidebarGuest from "../components/SidebarGuest";
+import SidebarAuthor from "../components/SidebarAuthor";
 import "../styles/PersonalProfile.css";
 
 const PersonalProfile = () => {

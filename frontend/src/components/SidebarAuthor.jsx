@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/SidebarGuest.css"; // Đảm bảo đường dẫn này đúng với cấu trúc của bạn
+import "../styles/SidebarAuthor.css"; // Đảm bảo đường dẫn này đúng với cấu trúc của bạn
 
 const SidebarGuest = ({ activePage }) => {
   const menuItems = [
