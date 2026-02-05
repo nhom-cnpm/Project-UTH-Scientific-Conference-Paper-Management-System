@@ -22,6 +22,8 @@ import AssignedPapers from "./pages/AssignedPapersReviewer";
 import ReviewAction from "./pages/ReviewActionReviewer";
 import PaperDetailReviewer from "./pages/PaperDetailReviewer";
 import SubmitReview from "./pages/SubmitReview";
+import DeclineReview from "./pages/DeclineReview";
+import DeclareCOIDetailsReviewer from "./pages/DeclareCOIDetailsReviewer";
 function App() {
   return (
     <Router>
@@ -44,6 +46,11 @@ function App() {
           <Route path="review" element={<ReviewActionReviewer />} />
           <Route path="paper-detail" element={<PaperDetailReviewer />} />
           <Route path="submit-review" element={<SubmitReview />} />
+          <Route path="decline-review" element={<DeclineReview />} />
+          <Route
+            path="declare-coi-details"
+            element={<DeclareCOIDetailsReviewer />}
+          />
         </Route>
         {/* FALLBACK */}
         <Route path="*" element={<Navigate to="/" />} />
