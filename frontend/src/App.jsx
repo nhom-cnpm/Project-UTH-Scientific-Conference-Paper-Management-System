@@ -16,28 +16,35 @@ import TrangcuaQtvien from "./pages/TrangcuaQtvien";
 import AdminQuanli from "./pages/AdminQuanli";
 import EditUser from "./pages/EditUser";
 
+import MainLayout from "./layouts/MainLayoutReviewer";
+import Dashboard from "./pages/DashboardReviewer";
+import AssignedPapers from "./pages/AssignedPapersReviewer";
+import ReviewAction from "./pages/ReviewActionReviewer";
+import PaperDetailReviewer from "./pages/PaperDetailReviewer";
+import SubmitReview from "./pages/SubmitReview";
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Trangchu />} />
         <Route path="/login" element={<Login />} />
-
         {/* ADMIN */}
         <Route path="/admin" element={<TrangcuaQtvien />} />
         <Route path="/adminPhanquyen" element={<TrangcuaQtvien />} />
         <Route path="/conference-manage" element={<AdminQuanli />} />
-        <Route path="/conference-manage/edit" element={<EditUser />} />
-    q
+        <Route path="/conference-manage/edit" element={<EditUser />} />q
         {/* CHAIR */}
         <Route path="/chair" element={<ChairLayout />} />
-
         {/* REVIEWER */}
         <Route path="/reviewer" element={<ReviewerLayout />}>
           <Route index element={<ReviewerPaperList />} />
           <Route path="paper/:id" element={<PaperDetail />} />
+          <Route path="dashboard" element={<DashboardReviewer />} />
+          <Route path="assigned" element={<AssignedPapersReviewer />} />
+          <Route path="review" element={<ReviewActionReviewer />} />
+          <Route path="paper-detail" element={<PaperDetailReviewer />} />
+          <Route path="submit-review" element={<SubmitReview />} />
         </Route>
-
         {/* FALLBACK */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
