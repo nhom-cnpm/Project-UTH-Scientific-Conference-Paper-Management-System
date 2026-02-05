@@ -34,7 +34,7 @@ function App() {
         <Route path="/admin" element={<TrangcuaQtvien />} />
         <Route path="/adminPhanquyen" element={<TrangcuaQtvien />} />
         <Route path="/conference-manage" element={<AdminQuanli />} />
-        <Route path="/conference-manage/edit" element={<EditUser />} />q
+        <Route path="/conference-manage/edit" element={<EditUser />} />
         {/* CHAIR */}
         <Route path="/chair" element={<ChairLayout />} />
         {/* REVIEWER */}

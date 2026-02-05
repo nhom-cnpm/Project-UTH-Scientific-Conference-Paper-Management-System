@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import COIFinalConfirmModal from "../components/COIFinalConfirmModal"; // Import modal mới
 
-const DeclareCOIDetailsReviewer = () => {
+const DeclareCOIDetailsReviewer = ({ onBack, onSubmitSuccess }) => {
   const [isFinalModalOpen, setIsFinalModalOpen] = useState(false);
 
   const coiTypes = [
@@ -12,51 +11,174 @@ const DeclareCOIDetailsReviewer = () => {
     "Other:",
   ];
 
-  return (
-    <div className="max-w-3xl mx-auto relative">
-      <h2 className="text-center text-xl font-bold mb-12 uppercase tracking-tight">
-        Declare COI – Details
-      </h2>
+  // --- CÁC STYLE THUẦN CSS ---
+  const containerStyle = {
+    maxWidth: "800px",
+    margin: "0 auto",
+    position: "relative",
+    padding: "20px",
+    fontFamily: "sans-serif",
+  };
 
-      <div className="space-y-6 ml-10">
-        <h3 className="text-xl font-bold mb-4">
-          Type of Conflict of Interest:
-        </h3>
+  const titleStyle = {
+    textAlign: "center",
+    fontSize: "24px",
+    fontWeight: "bold",
+    marginBottom: "50px",
+    textTransform: "none", // Chỉnh lại theo thiết kế
+  };
+
+  const sectionTitleStyle = {
+    fontSize: "20px",
+    fontWeight: "bold",
+    marginBottom: "20px",
+  };
+
+  const optionContainerStyle = {
+    display: "flex",
+    alignItems: "center",
+    gap: "15px",
+    marginBottom: "20px",
+    marginLeft: "40px",
+  };
+
+  const radioStyle = {
+    width: "18px",
+    height: "18px",
+    cursor: "pointer",
+  };
+
+  const textareaStyle = {
+    width: "100%",
+    border: "1px solid #ccc",
+    padding: "15px",
+    borderRadius: "4px",
+    height: "130px",
+    fontSize: "16px",
+    outline: "none",
+    marginTop: "10px",
+  };
+
+  const submitBtnStyle = {
+    backgroundColor: "#FF5F5F",
+    color: "white",
+    padding: "10px 60px",
+    borderRadius: "10px",
+    border: "none",
+    fontWeight: "bold",
+    fontSize: "18px",
+    cursor: "pointer",
+    boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+  };
+
+  return (
+    <div style={containerStyle}>
+      {/* Nút Back để quay lại Review Action */}
+      <button
+        onClick={onBack}
+        style={{
+          background: "none",
+          border: "none",
+          color: "#4338ca",
+          cursor: "pointer",
+          fontWeight: "bold",
+          fontSize: "16px",
+          marginBottom: "20px",
+        }}
+      >
+        ← Back
+      </button>
+
+      <h2 style={titleStyle}>Declare COI – Details</h2>
+
+      <div style={{ marginLeft: "40px" }}>
+        <h3 style={sectionTitleStyle}>Type of Conflict of Interest:</h3>
 
         {coiTypes.map((type) => (
-          <div key={type} className="flex items-start gap-4">
-            <input
-              type="radio"
-              name="coiType"
-              id={type}
-              className="mt-1.5 w-4 h-4 cursor-pointer accent-red-500"
-            />
-            <label htmlFor={type} className="text-lg cursor-pointer">
+          <div key={type} style={optionContainerStyle}>
+            <input type="radio" name="coiType" id={type} style={radioStyle} />
+            <label
+              htmlFor={type}
+              style={{ fontSize: "18px", cursor: "pointer" }}
+            >
               {type}
             </label>
           </div>
         ))}
 
-        <div className="ml-8">
+        <div style={{ paddingRight: "40px", marginLeft: "33px" }}>
           <textarea
             placeholder="Write details"
-            className="w-full border border-gray-300 p-4 rounded h-32 focus:outline-none focus:ring-1 focus:ring-red-400 shadow-sm"
+            style={textareaStyle}
           ></textarea>
         </div>
       </div>
 
-      <div className="flex justify-center mt-12">
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
         <button
-          onClick={() => setIsFinalModalOpen(true)} // Mở modal khi bấm submit
-          className="bg-[#FF5F5F] text-white px-14 py-2 rounded-xl font-bold shadow-md hover:bg-red-600 transition-colors"
+          onClick={() => setIsFinalModalOpen(true)} // Mở modal xác nhận
+          style={submitBtnStyle}
         >
           Submit
         </button>
       </div>
 
-      {/* Render Modal xác nhận cuối cùng */}
+      {/* Modal xác nhận - Nhớ truyền onSubmitSuccess vào Modal để quay về trang chính */}
       {isFinalModalOpen && (
-        <COIFinalConfirmModal onClose={() => setIsFinalModalOpen(false)} />
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0,0,0,0.3)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "white",
+              padding: "40px",
+              borderRadius: "8px",
+              maxWidth: "500px",
+              textAlign: "center",
+            }}
+          >
+            <h3 style={{ marginBottom: "30px", fontSize: "20px" }}>
+              Are you sure you want to submit this COI declaration?
+            </h3>
+            <div style={{ display: "flex", justifyContent: "space-around" }}>
+              <button
+                onClick={onSubmitSuccess}
+                style={{
+                  border: "none",
+                  background: "none",
+                  fontWeight: "bold",
+                  fontSize: "18px",
+                  cursor: "pointer",
+                }}
+              >
+                Sure
+              </button>
+              <button
+                onClick={() => setIsFinalModalOpen(false)}
+                style={{
+                  border: "none",
+                  background: "none",
+                  fontWeight: "bold",
+                  fontSize: "18px",
+                  cursor: "pointer",
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

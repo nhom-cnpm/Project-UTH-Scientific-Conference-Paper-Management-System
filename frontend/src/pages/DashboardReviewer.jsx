@@ -1,31 +1,66 @@
-const Dashboard = () => {
-  const stats = [
-    { label: "Assigned", count: 5, color: "bg-[#FF6B6B]" },
-    { label: "Reviewed", count: 2, color: "bg-[#FF9F43]" },
-    { label: "Pending", count: 3, color: "bg-[#2E5BFF]" },
-  ];
+import React from "react";
+
+const DashboardReviewer = () => {
+  const cardStyle = {
+    flex: 1,
+    height: "140px",
+    borderRadius: "8px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "white",
+    fontSize: "36px",
+    fontWeight: "bold",
+    position: "relative",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
+  };
+
+  const labelStyle = {
+    position: "absolute",
+    top: "15px",
+    fontSize: "15px",
+    fontWeight: "normal",
+  };
 
   return (
-    <div className="max-w-4xl mx-auto border p-6 rounded shadow-sm">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xl font-bold">View Assigned Papers</h2>
-        <button className="text-blue-600 text-sm">View More ▾</button>
+    <div
+      style={{
+        backgroundColor: "white",
+        padding: "30px",
+        borderRadius: "10px",
+        border: "1px solid #f0f0f0",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "20px",
+        }}
+      >
+        <h2 style={{ fontSize: "20px", fontWeight: "bold", color: "#333" }}>
+          View Assigned Papers
+        </h2>
+        <span style={{ color: "#1864FF", cursor: "pointer", fontSize: "13px" }}>
+          View More ▾
+        </span>
       </div>
-      <div className="grid grid-cols-3 gap-6">
-        {stats.map((item, index) => (
-          <div
-            key={index}
-            className={`${item.color} text-white p-10 rounded shadow flex flex-col items-center justify-center`}
-          >
-            <span className="text-lg mb-2">
-              {item.label === "Assigned" ? "" : item.label}
-            </span>
-            <span className="text-5xl font-bold">{item.count}</span>
-          </div>
-        ))}
+
+      <div style={{ display: "flex", gap: "20px" }}>
+        <div style={{ ...cardStyle, backgroundColor: "#FF5A5A" }}>
+          5<span style={labelStyle}>Assigned Paper</span>
+        </div>
+        <div style={{ ...cardStyle, backgroundColor: "#FF9F43" }}>
+          <span style={labelStyle}>Reviewed</span>2
+        </div>
+        <div style={{ ...cardStyle, backgroundColor: "#1864FF" }}>
+          <span style={labelStyle}>Pending</span>3
+        </div>
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default DashboardReviewer;

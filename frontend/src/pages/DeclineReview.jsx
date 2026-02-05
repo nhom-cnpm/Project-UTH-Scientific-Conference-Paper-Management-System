@@ -1,20 +1,121 @@
-import React, { useState } from "react";
-import DeclineConfirmModal from "../components/DeclineConfirmModal";
+import React, { useState } from "react"; // 1. Note: Thêm useState ở đây
 
-const DeclineReview = () => {
-  // State để quản lý việc hiển thị Modal (mặc định là false - đóng)
+const DeclineReview = ({ onBack, onSubmitSuccess }) => {
+  // 2. Note: Thêm state quản lý đóng/mở Modal
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Hàm xử lý khi nhấn nút Submit Reason
-  const handleSubmitClick = () => {
-    setIsModalOpen(true); // Mở modal lên
+  const containerStyle = {
+    padding: "40px",
+    backgroundColor: "white",
+    borderRadius: "12px",
+    maxWidth: "900px",
+    margin: "0 auto",
+    fontFamily: "sans-serif",
+    position: "relative", // Để Modal căn giữa đúng hơn
   };
 
-  return (
-    <div className="max-w-3xl mx-auto relative">
-      <h2 className="text-center text-xl font-bold mb-12">Decline review</h2>
+  const optionStyle = {
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
+    marginBottom: "20px",
+    fontSize: "18px",
+    cursor: "pointer",
+  };
 
-      <div className="space-y-6 ml-10">
+  // 3. Note: Tạo giao diện Modal xác nhận
+  const renderConfirmModal = () => (
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: "rgba(0,0,0,0.4)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        zIndex: 1000,
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: "white",
+          padding: "40px",
+          borderRadius: "12px",
+          maxWidth: "550px",
+          textAlign: "center",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+        }}
+      >
+        <h3
+          style={{ fontSize: "22px", marginBottom: "40px", lineHeight: "1.4" }}
+        >
+          After submitting the reasons for rejection, the reviewer will no
+          longer be able to consider this paper.
+        </h3>
+        <div style={{ display: "flex", justifyContent: "space-around" }}>
+          <button
+            onClick={onSubmitSuccess}
+            style={{
+              background: "none",
+              border: "none",
+              fontSize: "20px",
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
+          >
+            Sure
+          </button>
+          <button
+            onClick={() => setIsModalOpen(false)}
+            style={{
+              background: "none",
+              border: "none",
+              fontSize: "20px",
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div style={containerStyle}>
+      <button
+        onClick={onBack}
+        style={{
+          background: "none",
+          border: "none",
+          color: "#4338ca",
+          cursor: "pointer",
+          fontWeight: "bold",
+          fontSize: "16px",
+          display: "flex",
+          alignItems: "center",
+          marginBottom: "30px",
+        }}
+      >
+        ← Back
+      </button>
+
+      <h2
+        style={{
+          textAlign: "center",
+          fontSize: "24px",
+          fontWeight: "bold",
+          marginBottom: "50px",
+        }}
+      >
+        Decline review
+      </h2>
+
+      <div style={{ paddingLeft: "50px" }}>
         {[
           "Paper Not in My Field",
           "Lack of Expertise",
@@ -22,39 +123,52 @@ const DeclineReview = () => {
           "Conflict of Interest",
           "Other:",
         ].map((reason) => (
-          <div key={reason} className="flex items-start gap-4">
+          <label key={reason} style={optionStyle}>
             <input
               type="radio"
               name="declineReason"
-              id={reason}
-              className="mt-1.5 w-4 h-4 cursor-pointer"
+              style={{ width: "18px", height: "18px", cursor: "pointer" }}
             />
-            <label htmlFor={reason} className="text-lg cursor-pointer">
-              {reason}
-            </label>
-          </div>
+            {reason}
+          </label>
         ))}
-        <div className="ml-8">
+
+        <div style={{ marginTop: "10px", paddingRight: "50px" }}>
           <textarea
             placeholder="Write another reason....."
-            className="w-full border border-gray-300 p-4 rounded h-32 focus:outline-none focus:ring-1 focus:ring-red-400"
-          ></textarea>
+            style={{
+              width: "100%",
+              height: "150px",
+              padding: "15px",
+              borderRadius: "4px",
+              border: "1px solid #ccc",
+              fontSize: "16px",
+              outline: "none",
+            }}
+          />
         </div>
       </div>
 
-      <div className="flex justify-center mt-12">
+      <div style={{ textAlign: "center", marginTop: "40px" }}>
         <button
-          onClick={handleSubmitClick} // Gọi hàm mở modal khi click
-          className="bg-[#FF5F5F] text-white px-10 py-2 rounded-xl font-bold shadow-md hover:bg-red-600 transition-colors"
+          onClick={() => setIsModalOpen(true)} // 4. Note: Đổi từ onSubmitSuccess thành mở Modal
+          style={{
+            backgroundColor: "#FF5F5F",
+            color: "white",
+            padding: "12px 40px",
+            borderRadius: "10px",
+            border: "none",
+            fontWeight: "bold",
+            fontSize: "16px",
+            cursor: "pointer",
+          }}
         >
           Submit Reason
         </button>
       </div>
 
-      {/* Nếu isModalOpen là true thì render Modal */}
-      {isModalOpen && (
-        <DeclineConfirmModal onClose={() => setIsModalOpen(false)} />
-      )}
+      {/* 5. Note: Hiển thị Modal nếu isModalOpen = true */}
+      {isModalOpen && renderConfirmModal()}
     </div>
   );
 };

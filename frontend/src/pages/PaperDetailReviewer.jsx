@@ -1,65 +1,202 @@
-const PaperDetail = () => {
-  const paperInfo = {
-    id: "P-0123",
-    title: "Hệ thống giao thông AI",
-    conference: "UTH-COMFMS",
-    track: "Artificial Intelligence",
-    submissionDate: "10/02/2026",
-    deadline: "20/03/2026",
-    authors: "Nguyễn Văn A – UTH",
-    abstract:
-      "Hệ thống giao thông AI ứng dụng trí tuệ nhân tạo để phân tích dữ liệu giao thông và dự đoán tình trạng ùn tắc. Nghiên cứu nhằm hỗ trợ điều tiết giao thông hiệu quả, giảm kẹt xe và nâng cao an toàn giao thông đô thị.",
-  };
+import React, { useState } from "react";
 
-  return (
-    <div className="max-w-3xl mx-auto">
-      <h2 className="text-center text-xl font-bold mb-6">Paper Detail</h2>
-      <div className="space-y-4 mb-6">
-        <p>
-          <strong>• Paper ID:</strong> {paperInfo.id}
-        </p>
-        <p>
-          <strong>• Paper Title:</strong> {paperInfo.title}
-        </p>
-        <p>
-          <strong>• Conference:</strong> {paperInfo.conference}
-        </p>
-        <p>
-          <strong>• Track/Topic:</strong> {paperInfo.track}
-        </p>
-        <p>
-          <strong>• Submission Date:</strong> {paperInfo.submissionDate}
-        </p>
-        <p>
-          <strong>• Review Deadline:</strong> {paperInfo.deadline}
-        </p>
-        <p>
-          <strong>• Authors:</strong> {paperInfo.authors}
-        </p>
-      </div>
-
-      <div className="flex justify-end mb-2">
-        <button className="text-blue-600 text-sm hover:underline">
-          Download PDF
+export default function PaperDetailReviewer({
+  paper,
+  onBack,
+  actionButtonStyle,
+}) {
+  const [isReviewing, setIsReviewing] = useState(false);
+  if (!paper) {
+    return null;
+  }
+  //Giao diện review form
+  if (isReviewing) {
+    return (
+      <div
+        style={{
+          backgroundColor: "white",
+          padding: "30px",
+          borderRadius: "12px",
+        }}
+      >
+        <button
+          onClick={() => setIsReviewing(false)}
+          style={{
+            background: "none",
+            border: "none",
+            color: "#4338ca",
+            cursor: "pointer",
+            fontWeight: "bold",
+            marginBottom: "20px",
+          }}
+        >
+          ← Back to Detail
         </button>
-      </div>
-
-      <div className="border border-gray-400 rounded overflow-hidden mb-10">
-        <div className="bg-gray-100 p-2 font-bold border-b border-gray-400">
-          Abstract
-        </div>
-        <div className="p-4 text-justify leading-relaxed">
-          {paperInfo.abstract}
-        </div>
-      </div>
-
-      <div className="flex justify-center">
-        <button className="bg-[#FF5F5F] text-white px-10 py-2 rounded-xl font-bold shadow-md hover:bg-red-500 transition-colors">
+        <h2
+          style={{
+            textAlign: "center",
+            fontSize: "24px",
+            fontWeight: "bold",
+            marginBottom: "40px",
+          }}
+        >
           Review
-        </button>
+        </h2>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <p style={{ fontWeight: "bold", marginBottom: "5px" }}>
+            Overall Evaluation
+          </p>
+          <textarea
+            placeholder="Write general comments"
+            style={{
+              width: "100%",
+              height: "100px",
+              marginBottom: "20px",
+              padding: "10px",
+            }}
+          />
+
+          <p style={{ fontWeight: "bold", marginBottom: "5px" }}>
+            Strengths and weaknesses of the essay
+          </p>
+          <textarea
+            placeholder="Write down the strengths and weaknesses of the essay"
+            style={{
+              width: "100%",
+              height: "100px",
+              marginBottom: "20px",
+              padding: "10px",
+            }}
+          />
+
+          <p style={{ fontWeight: "bold", marginBottom: "5px" }}>
+            Overall score
+          </p>
+          <input
+            type="text"
+            placeholder="The rating scale is from 1 to 5."
+            style={{ width: "100%", padding: "10px", marginBottom: "30px" }}
+          />
+
+          <div style={{ textAlign: "center" }}>
+            <button
+              onClick={() => {
+                alert("Submit Success!");
+                onBack();
+              }}
+              style={actionButtonStyle("#FF5F5F")}
+            >
+              Submit Review
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div
+      style={{
+        backgroundColor: "white",
+        padding: "30px",
+        borderRadius: "12px",
+      }}
+    >
+      {/* Nút Back */}
+      <button
+        onClick={onBack}
+        style={{
+          background: "none",
+          border: "none",
+          color: "#4338ca",
+          cursor: "pointer",
+          fontWeight: "bold",
+          marginBottom: "20px",
+        }}
+      >
+        ← Back
+      </button>
+
+      <h2
+        style={{
+          fontSize: "24px",
+          fontWeight: "bold",
+          textAlign: "center",
+          marginBottom: "30px",
+        }}
+      >
+        Paper Detail
+      </h2>
+
+      <div
+        style={{
+          maxWidth: "800px",
+          margin: "0 auto",
+          fontSize: "16px",
+          lineHeight: "2",
+        }}
+      >
+        {/* Thông tin bài báo */}
+        <p>
+          <strong>• Paper ID:</strong> {paper.paperId}
+        </p>
+        <p>
+          <strong>• Paper Title:</strong> {paper.title}
+        </p>
+        <p>
+          <strong>• Conference:</strong> {paper.conference}
+        </p>
+        <p>
+          <strong>• Track/Topic:</strong> {paper.track}
+        </p>
+        <p>
+          <strong>• Submission Date:</strong> {paper.submissionDate}
+        </p>
+        <p>
+          <strong>• Review Deadline:</strong> {paper.deadline}
+        </p>
+        <p>
+          <strong>• Authors:</strong> {paper.authors}
+        </p>
+
+        <div style={{ textAlign: "right", margin: "10px 0" }}>
+          <span
+            style={{
+              color: "#4338ca",
+              cursor: "pointer",
+              textDecoration: "underline",
+            }}
+          >
+            Download PDF
+          </span>
+        </div>
+
+        {/* Khung Abstract */}
+        <div style={{ border: "1px solid #333", marginTop: "10px" }}>
+          <div
+            style={{
+              backgroundColor: "#E8E8E8",
+              padding: "5px 15px",
+              fontWeight: "bold",
+              borderBottom: "1px solid #333",
+            }}
+          >
+            Abstract
+          </div>
+          <div style={{ padding: "15px", textAlign: "justify" }}>
+            {paper.abstract}
+          </div>
+        </div>
+
+        {/* Nút Review màu hồng */}
+        <div style={{ textAlign: "center", marginTop: "30px" }}>
+          <button
+            onClick={() => setIsReviewing(true)}
+            style={actionButtonStyle("#FF6B6B")}
+          >
+            Review
+          </button>
+        </div>
       </div>
     </div>
   );
-};
-
-export default PaperDetail;
+}

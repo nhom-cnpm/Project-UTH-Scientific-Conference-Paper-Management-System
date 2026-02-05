@@ -34,6 +34,12 @@ const ReviewActionReviewer = () => {
       {/* Các nút hành động */}
       <div className="flex justify-center gap-4">
         <button className="bg-[#4ADE80] text-white px-6 py-2 rounded-xl font-bold shadow-md">
+          <button
+            onClick={() => setShowFullDetail(true)} // Thêm dòng này để mở trang Detail
+            style={actionButtonStyle("#00E640")}
+          >
+            Accept Review
+          </button>
           Accept Review
         </button>
         <button className="bg-[#FF4D4D] text-white px-6 py-2 rounded-xl font-bold shadow-md">
