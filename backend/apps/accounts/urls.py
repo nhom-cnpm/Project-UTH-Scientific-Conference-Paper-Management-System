@@ -1,6 +1,6 @@
-# config/urls.py
-from django.urls import path, include
+from django.urls import path
+from .views import register
 
 urlpatterns = [
-    path("api/accounts/", include("apps.accounts.urls")),
+    path("register/", register),
 ]

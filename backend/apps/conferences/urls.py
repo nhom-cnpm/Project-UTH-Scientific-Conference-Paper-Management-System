@@ -1,7 +1,9 @@
-from django.urls import path
-from .views import ConferenceListCreateView
+from rest_framework.routers import DefaultRouter
+from .views import ConferenceViewSet
 
-urlpatterns = [
-    path("", ConferenceListCreateView.as_view(), name="conference-list"),
-]
+router = DefaultRouter()
+router.register(r"", ConferenceViewSet, basename="conference")
+
+urlpatterns = router.urls
+
 
