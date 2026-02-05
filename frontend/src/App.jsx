@@ -95,11 +95,12 @@ function App() {
         </Route>
         {/*AUTHOR*/}
         <Route path="/author" element={<AuthorLayout />}>
-          <Route path="mysubmissions" element={<MySubmissionsAuthor />} />
+          <Route index element={<MySubmissionsAuthor />} />
           <Route
             path="submission-detail"
             element={<SubmissionDetailAuthor />}
           />
+          <Route path="*" element={<Navigate to="/author" />} />
         </Route>
         {/* FALLBACK */}
         <Route path="*" element={<Navigate to="/" />} />

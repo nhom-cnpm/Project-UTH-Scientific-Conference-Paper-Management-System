@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/AuthorStyles.css";
 
 const SubmissionDetailAuthor = () => {
+  const [showMenuId, setShowMenuId] = useState(null);
+
   const submissions = [
     { id: 1, title: "Hệ thống giao thông AI", topic: "Trí tuệ nhân tạo" },
     {
@@ -13,8 +15,10 @@ const SubmissionDetailAuthor = () => {
 
   return (
     <div className="author-container">
-      {/* Tiêu đề đổi thành Submission Detail theo ảnh mẫu */}
-      <h2 className="author-title" style={{ marginTop: "40px" }}>
+      <h2
+        className="author-title"
+        style={{ textAlign: "center", marginTop: "20px" }}
+      >
         Submission Detail
       </h2>
 
@@ -32,17 +36,37 @@ const SubmissionDetailAuthor = () => {
                 {index + 1}. {item.title}
               </td>
               <td style={{ textAlign: "center", position: "relative" }}>
-                {item.topic}
-                {/* Thêm dấu ba chấm (...) bên phải Topic như trong ảnh */}
-                <span
+                <div
                   style={{
-                    position: "absolute",
-                    right: "20px",
-                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
                 >
-                  ...
-                </span>
+                  {item.topic}
+                  <span
+                    style={{
+                      marginLeft: "10px",
+                      cursor: "pointer",
+                      fontWeight: "bold",
+                    }}
+                    onClick={() =>
+                      setShowMenuId(showMenuId === item.id ? null : item.id)
+                    }
+                  >
+                    ...
+                  </span>
+                </div>
+
+                {/* Khung menu nổi tuyệt đối */}
+                {showMenuId === item.id && (
+                  <div className="action-menu">
+                    <div className="menu-item">Edit Submission</div>
+                    <div className="menu-item">Withdraw Submission</div>
+                    <div className="menu-item">View Reviewer</div>
+                    <div className="menu-item">View Decision</div>
+                  </div>
+                )}
               </td>
             </tr>
           ))}
