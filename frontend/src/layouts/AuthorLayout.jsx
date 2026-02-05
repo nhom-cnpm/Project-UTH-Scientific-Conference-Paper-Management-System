@@ -4,7 +4,13 @@ import { Outlet, useNavigate, useLocation } from "react-router-dom";
 const AuthorLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isMySubmission = location.pathname.includes("author");
+
+  // Logic kiểm tra trang hiện tại để tô màu menu
+  const isMySubmission =
+    location.pathname === "/author" || location.pathname.includes("submission");
+  const isProfile =
+    location.pathname.includes("personal-profile") ||
+    location.pathname.includes("edit-profile");
 
   return (
     <div
@@ -39,9 +45,11 @@ const AuthorLayout = () => {
             paddingTop: "20px",
           }}
         >
-          <div style={navItemStyle}>Home</div>
+          <div style={navItemStyle} onClick={() => navigate("/")}>
+            Home
+          </div>
 
-          {/* CỤC XANH XÍCH VÔ TRONG: Dùng width 85% để tạo khoảng trống bên phải */}
+          {/* MY SUBMISSION */}
           <div
             style={{
               ...navItemStyle,
@@ -49,7 +57,7 @@ const AuthorLayout = () => {
               color: isMySubmission ? "#4f46e5" : "#333",
               borderRadius: "0 20px 20px 0",
               width: "85%",
-              fontWeight: "500",
+              fontWeight: isMySubmission ? "bold" : "normal",
             }}
             onClick={() => navigate("/author")}
           >
@@ -57,9 +65,22 @@ const AuthorLayout = () => {
           </div>
 
           <div style={navItemStyle}>Notification</div>
-          <div style={navItemStyle}>Personal profile</div>
 
-          {/* LOGOUT XÍCH LÊN TRÊN */}
+          {/* PERSONAL PROFILE - ĐÃ THÊM LOGIC BẤM ĐƯỢC */}
+          <div
+            style={{
+              ...navItemStyle,
+              backgroundColor: isProfile ? "#e0e7ff" : "transparent",
+              color: isProfile ? "#4f46e5" : "#333",
+              borderRadius: "0 20px 20px 0",
+              width: "85%",
+              fontWeight: isProfile ? "bold" : "normal",
+            }}
+            onClick={() => navigate("/author/personal-profile")} // THÊM DÒNG NÀY
+          >
+            Personal profile
+          </div>
+
           <div
             style={{ ...navItemStyle, color: "#333", marginTop: "10px" }}
             onClick={() => navigate("/login")}
@@ -96,7 +117,7 @@ const AuthorLayout = () => {
             </div>
           </header>
           <div style={{ padding: "0 40px" }}>
-            <Outlet />
+            <Outlet /> {/* Nơi hiển thị PersonalProfile.jsx */}
           </div>
         </main>
       </div>
