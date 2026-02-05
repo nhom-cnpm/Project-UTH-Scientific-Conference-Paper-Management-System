@@ -1,6 +1,17 @@
-from .bases_setting import *
+from .base_setting import *
 
-DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'mssql',
+        'NAME': 'conference',
+        'USER': 'sa',
+        'PASSWORD': '123456',
+        'HOST': 'LAPTOP-6R6QNJFA\\MSSQLSERVER1',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+            'TrustServerCertificate': 'yes',
+        },
+    }
+}

@@ -25,4 +25,11 @@ class Submission(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     class Meta:
+<<<<<<< HEAD
         indexes = [models.Index(fields=["status"]), models.Index(fields=["paper_id"]),]
+=======
+        indexes = [models.Index(fields=["status"]), models.Index(fields=["paper_id"]),]
+=======
+# Create your models here.
+>>>>>>> main
+>>>>>>> b5d226157563910d980209022b3b2b6e8baa647a

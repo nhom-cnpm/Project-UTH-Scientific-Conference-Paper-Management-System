@@ -1,3 +1,11 @@
-from django.test import TestCase
+import os
+import django
 
-# Create your tests here.
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.bases_settings")
+django.setup()
+
+from apps.accounts.models import ID
+
+ID.objects.create(Ten="Bao Nhu")
+
+print("✅ Insert OK")
