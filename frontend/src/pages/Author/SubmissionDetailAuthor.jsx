@@ -1,60 +1,109 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/AuthorStyles.css";
 
 const SubmissionDetailAuthor = () => {
   const navigate = useNavigate();
   const [showMenuId, setShowMenuId] = useState(null);
-
-  // NOTE 1: Quản lý danh sách bài viết bằng State để có thể xóa
-  const [submissions, setSubmissions] = useState([
-    { id: 1, title: "Hệ thống giao thông AI", topic: "Trí tuệ nhân tạo" },
-    {
-      id: 2,
-      title: "Xây dựng hệ thống quản lý thư viện thông minh",
-      topic: "Trí tuệ nhân tạo",
-    },
-  ]);
-
-  // NOTE 2: State quản lý hiển thị Modal xác nhận rút bài
   const [withdrawId, setWithdrawId] = useState(null);
 
+  // Lấy dữ liệu thực tế từ localStorage khi trang load
+  const [submissions, setSubmissions] = useState([]);
+
+  useEffect(() => {
+    const savedData = JSON.parse(localStorage.getItem("submissions"));
+    if (savedData) {
+      setSubmissions(savedData);
+    } else {
+      // Dữ liệu mặc định nếu chưa có gì trong máy
+      const defaultData = [
+        { id: 1, title: "Hệ thống giao thông AI", topic: "Trí tuệ nhân tạo" },
+        {
+          id: 2,
+          title: "Xây dựng hệ thống quản lý thư viện thông minh",
+          topic: "Trí tuệ nhân tạo",
+        },
+      ];
+      setSubmissions(defaultData);
+      localStorage.setItem("submissions", JSON.stringify(defaultData));
+    }
+  }, []);
+
+  // Hàm xử lý rút bài (Xóa bài)
   const handleWithdraw = () => {
-    // Xóa bài viết khỏi danh sách
-    setSubmissions(submissions.filter((item) => item.id !== withdrawId));
+    // 1. Lọc bỏ bài viết có ID trùng với withdrawId
+    const updatedData = submissions.filter((item) => item.id !== withdrawId);
+
+    // 2. Cập nhật State để giao diện thay đổi ngay lập tức
+    setSubmissions(updatedData);
+
+    // 3. Cập nhật localStorage để đồng bộ với trang "My Submissions"
+    localStorage.setItem("submissions", JSON.stringify(updatedData));
+
+    // 4. Đóng Modal và Menu
     setWithdrawId(null);
     setShowMenuId(null);
   };
 
   return (
-    <div className="author-container" style={{ position: "relative" }}>
+    <div
+      className="author-container"
+      style={{ position: "relative", padding: "20px" }}
+    >
       <h2
         className="author-title"
-        style={{ textAlign: "center", marginTop: "20px" }}
+        style={{
+          textAlign: "left",
+          marginBottom: "30px",
+          fontWeight: "500",
+          fontSize: "24px",
+        }}
       >
         Submission Detail
       </h2>
 
-      <table className="submissions-table">
-        <thead style={{ backgroundColor: "#43B5AD", color: "white" }}>
-          <tr>
-            <th style={{ width: "65%", padding: "15px" }}>
+      <table
+        className="submissions-table"
+        style={{ width: "100%", borderCollapse: "collapse" }}
+      >
+        {/* Header với màu xanh ngọc chuẩn thiết kế */}
+        <thead>
+          <tr style={{ backgroundColor: "#43B5AD", color: "white" }}>
+            <th
+              style={{
+                width: "65%",
+                padding: "15px",
+                textAlign: "left",
+                fontWeight: "normal",
+                backgroundColor: "#43B5AD",
+              }}
+            >
               Title of the article
             </th>
-            <th style={{ padding: "15px" }}>Topic</th>
+            <th
+              style={{
+                padding: "15px",
+                textAlign: "left",
+                fontWeight: "normal",
+                backgroundColor: "#43B5AD",
+              }}
+            >
+              Topic
+            </th>
           </tr>
         </thead>
         <tbody>
           {submissions.map((item, index) => (
-            <tr key={item.id}>
-              <td style={{ padding: "15px" }}>
+            <tr key={item.id} style={{ borderBottom: "1px solid #eee" }}>
+              <td style={{ padding: "15px", border: "1px solid #eee" }}>
                 {index + 1}. {item.title}
               </td>
               <td
                 style={{
+                  padding: "15px",
+                  border: "1px solid #eee",
                   textAlign: "center",
                   position: "relative",
-                  padding: "15px",
                 }}
               >
                 <div
@@ -70,6 +119,7 @@ const SubmissionDetailAuthor = () => {
                       marginLeft: "10px",
                       cursor: "pointer",
                       fontWeight: "bold",
+                      fontSize: "18px",
                     }}
                     onClick={() =>
                       setShowMenuId(showMenuId === item.id ? null : item.id)
@@ -79,38 +129,57 @@ const SubmissionDetailAuthor = () => {
                   </span>
                 </div>
 
-                {/* Menu Action */}
+                {/* Menu Action xuất hiện khi bấm "..." */}
                 {showMenuId === item.id && (
                   <div
                     className="action-menu"
                     style={{
                       position: "absolute",
                       zIndex: 100,
-                      right: 0,
+                      right: "10px",
+                      top: "40px",
                       backgroundColor: "white",
                       border: "1px solid #ddd",
-                      borderRadius: "4px",
-                      boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+                      borderRadius: "8px",
+                      boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                      minWidth: "180px",
+                      textAlign: "left",
                     }}
                   >
                     <div
                       className="menu-item"
-                      style={{ padding: "10px 20px", cursor: "pointer" }}
-                      onClick={() => navigate("/author/edit-submission")}
+                      style={{
+                        padding: "12px 20px",
+                        cursor: "pointer",
+                        borderBottom: "1px solid #f5f5f5",
+                      }}
+                      onClick={() =>
+                        navigate("/author/edit-submission", {
+                          state: { article: item },
+                        })
+                      }
                     >
                       Edit Submission
                     </div>
-                    {/* Sửa tại đây: Mở modal xác nhận khi bấm Withdraw */}
                     <div
                       className="menu-item"
-                      style={{ padding: "10px 20px", cursor: "pointer" }}
+                      style={{
+                        padding: "12px 20px",
+                        cursor: "pointer",
+                        color: "#ff4d4d",
+                        borderBottom: "1px solid #f5f5f5",
+                      }}
                       onClick={() => setWithdrawId(item.id)}
                     >
                       Withdraw Submission
                     </div>
                     <div
                       className="menu-item"
-                      style={{ padding: "10px 20px" }}
+                      style={{
+                        padding: "12px 20px",
+                        cursor: "pointer",
+                        borderBottom: "1px solid #f5f5f5",
+                      }}
                       onClick={() =>
                         navigate(`/author/view-reviewer/${item.id}`)
                       }
@@ -119,7 +188,7 @@ const SubmissionDetailAuthor = () => {
                     </div>
                     <div
                       className="menu-item"
-                      style={{ padding: "10px 20px" }}
+                      style={{ padding: "12px 20px", cursor: "pointer" }}
                       onClick={() =>
                         navigate(`/author/view-decision/${item.id}`)
                       }
@@ -134,7 +203,7 @@ const SubmissionDetailAuthor = () => {
         </tbody>
       </table>
 
-      {/* MODAL XÁC NHẬN RÚT BÀI (Withdraw Confirmation) */}
+      {/* MODAL XÁC NHẬN RÚT BÀI */}
       {withdrawId && (
         <div
           style={{
@@ -143,7 +212,7 @@ const SubmissionDetailAuthor = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: "rgba(0,0,0,0.1)",
+            backgroundColor: "rgba(0,0,0,0.3)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -154,16 +223,25 @@ const SubmissionDetailAuthor = () => {
             style={{
               backgroundColor: "white",
               padding: "40px",
-              borderRadius: "8px",
-              boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+              borderRadius: "12px",
+              boxShadow: "0 8px 30px rgba(0,0,0,0.3)",
               textAlign: "center",
-              width: "550px",
+              width: "500px",
             }}
           >
-            <h2 style={{ marginBottom: "50px", fontSize: "24px" }}>
+            <h2
+              style={{
+                marginBottom: "40px",
+                fontSize: "22px",
+                color: "#333",
+                lineHeight: "1.5",
+              }}
+            >
               Are you sure you want to withdraw the submitted post?
             </h2>
-            <div style={{ display: "flex", justifyContent: "space-around" }}>
+            <div
+              style={{ display: "flex", justifyContent: "center", gap: "80px" }}
+            >
               <button
                 onClick={handleWithdraw}
                 style={{
@@ -172,18 +250,23 @@ const SubmissionDetailAuthor = () => {
                   fontSize: "24px",
                   fontWeight: "bold",
                   cursor: "pointer",
+                  color: "#ff4d4d",
                 }}
               >
                 Yes
               </button>
               <button
-                onClick={() => setWithdrawId(null)}
+                onClick={() => {
+                  setWithdrawId(null);
+                  setShowMenuId(null);
+                }}
                 style={{
                   background: "none",
                   border: "none",
                   fontSize: "24px",
                   fontWeight: "bold",
                   cursor: "pointer",
+                  color: "#666",
                 }}
               >
                 No
@@ -192,6 +275,20 @@ const SubmissionDetailAuthor = () => {
           </div>
         </div>
       )}
+
+      {/* Nút quay lại trang chủ Author */}
+      <button
+        onClick={() => navigate("/author")}
+        style={{
+          marginTop: "30px",
+          padding: "10px 20px",
+          cursor: "pointer",
+          borderRadius: "5px",
+          border: "1px solid #ddd",
+        }}
+      >
+        ← Back to My Submissions
+      </button>
     </div>
   );
 };
