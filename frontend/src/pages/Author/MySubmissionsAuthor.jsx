@@ -1,8 +1,27 @@
-import React from "react";
+// import React, { use } from "react";
 import { useNavigate } from "react-router-dom";
+
+import React, { useEffect, useState} from "react";
 
 const MySubmissionsAuthor = () => {
   const navigate = useNavigate();
+
+  // const [submissions, setSubmissions] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // useEffect(() => {
+  //   fetch("http://localhost:8000/submission/accepted/")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setSubmissions(data);
+  //       setLoading(false);
+  //     })
+  //     .catch((err) => {
+  //       console.error("API error:", err);
+  //       setLoading(false);
+  //     });
+  // }, []);
+
+
 
   return (
     <div

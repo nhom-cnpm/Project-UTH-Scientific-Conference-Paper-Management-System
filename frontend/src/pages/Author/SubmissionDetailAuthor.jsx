@@ -1,5 +1,10 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import "../../styles/AuthorStyles.css";
+
+
+  import React, { useEffect, useState } from "react";
+  import "../../styles/AuthorStyles.css";
+
 
 const SubmissionDetailAuthor = () => {
   const [showMenuId, setShowMenuId] = useState(null);
@@ -12,6 +17,25 @@ const SubmissionDetailAuthor = () => {
       topic: "Trí tuệ nhân tạo",
     },
   ];
+
+
+  // const [submissions, setSubmissions] = useState([]);
+  // const [loading, setLoading] = useState(true);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:8000/submission/accepted/")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log("API data:", data);
+  //       setSubmissions(data);
+  //       setLoading(false);
+  //     })
+  //     .catch((err) => {
+  //       console.error("API error:", err);
+  //       setLoading(false);
+  //     });
+  // }, []);
+
 
   return (
     <div className="author-container">
@@ -71,6 +95,7 @@ const SubmissionDetailAuthor = () => {
             </tr>
           ))}
         </tbody>
+        
       </table>
     </div>
   );

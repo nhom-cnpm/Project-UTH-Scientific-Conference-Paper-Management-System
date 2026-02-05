@@ -18,6 +18,7 @@ const DeclareCOIDetailsReviewer = ({ onBack, onSubmitSuccess }) => {
     position: "relative",
     padding: "20px",
     fontFamily: "sans-serif",
+    color: "#000",
   };
 
   const titleStyle = {
@@ -26,6 +27,7 @@ const DeclareCOIDetailsReviewer = ({ onBack, onSubmitSuccess }) => {
     fontWeight: "bold",
     marginBottom: "50px",
     textTransform: "none", // Chỉnh lại theo thiết kế
+    color: "#000",
   };
 
   const sectionTitleStyle = {
@@ -156,10 +158,11 @@ const DeclareCOIDetailsReviewer = ({ onBack, onSubmitSuccess }) => {
                 onClick={onSubmitSuccess}
                 style={{
                   border: "none",
-                  background: "none",
+                  background: "#c4ffc4",
                   fontWeight: "bold",
                   fontSize: "18px",
                   cursor: "pointer",
+                  color: "#000",
                 }}
               >
                 Sure
@@ -167,11 +170,12 @@ const DeclareCOIDetailsReviewer = ({ onBack, onSubmitSuccess }) => {
               <button
                 onClick={() => setIsFinalModalOpen(false)}
                 style={{
-                  border: "none",
-                  background: "none",
+                  border: "#000",
+                  background: "#ff4b4b",
                   fontWeight: "bold",
                   fontSize: "18px",
                   cursor: "pointer",
+                  color: "#000",
                 }}
               >
                 Cancel

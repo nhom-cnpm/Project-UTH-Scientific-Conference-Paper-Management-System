@@ -12,6 +12,7 @@ const DeclineReview = ({ onBack, onSubmitSuccess }) => {
     margin: "0 auto",
     fontFamily: "sans-serif",
     position: "relative", // Để Modal căn giữa đúng hơn
+    color: "#000",
   };
 
   const optionStyle = {
@@ -55,15 +56,16 @@ const DeclineReview = ({ onBack, onSubmitSuccess }) => {
           After submitting the reasons for rejection, the reviewer will no
           longer be able to consider this paper.
         </h3>
-        <div style={{ display: "flex", justifyContent: "space-around" }}>
+        <div style={{ display: "flex", justifyContent: "space-around" , color: "#000",}}>
           <button
             onClick={onSubmitSuccess}
             style={{
-              background: "none",
-              border: "none",
+              background: "#c4ffc4",
+              border: "#000",
               fontSize: "20px",
               fontWeight: "bold",
               cursor: "pointer",
+              color: "#000",
             }}
           >
             Sure
@@ -71,11 +73,12 @@ const DeclineReview = ({ onBack, onSubmitSuccess }) => {
           <button
             onClick={() => setIsModalOpen(false)}
             style={{
-              background: "none",
-              border: "none",
+              background: "#ff4b4b",
+              border: "#000",
               fontSize: "20px",
               fontWeight: "bold",
               cursor: "pointer",
+              color: "#000",
             }}
           >
             Cancel
@@ -115,7 +118,7 @@ const DeclineReview = ({ onBack, onSubmitSuccess }) => {
         Decline review
       </h2>
 
-      <div style={{ paddingLeft: "50px" }}>
+      <div style={{ paddingLeft: "50px" , color: "#000",}}>
         {[
           "Paper Not in My Field",
           "Lack of Expertise",

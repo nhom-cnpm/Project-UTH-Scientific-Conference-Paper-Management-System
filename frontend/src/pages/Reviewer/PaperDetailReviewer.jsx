@@ -38,12 +38,13 @@ export default function PaperDetailReviewer({
             fontSize: "24px",
             fontWeight: "bold",
             marginBottom: "40px",
+            color: "#000",
           }}
         >
           Review
         </h2>
         <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-          <p style={{ fontWeight: "bold", marginBottom: "5px" }}>
+          <p style={{ fontWeight: "bold", marginBottom: "5px" , color: "#000",}}>
             Overall Evaluation
           </p>
           <textarea
@@ -53,10 +54,11 @@ export default function PaperDetailReviewer({
               height: "100px",
               marginBottom: "20px",
               padding: "10px",
+              color: "#000",
             }}
           />
 
-          <p style={{ fontWeight: "bold", marginBottom: "5px" }}>
+          <p style={{ fontWeight: "bold", marginBottom: "5px" , color: "#000",}}>
             Strengths and weaknesses of the essay
           </p>
           <textarea
@@ -66,16 +68,17 @@ export default function PaperDetailReviewer({
               height: "100px",
               marginBottom: "20px",
               padding: "10px",
+              color: "#000",
             }}
           />
 
-          <p style={{ fontWeight: "bold", marginBottom: "5px" }}>
+          <p style={{ fontWeight: "bold", marginBottom: "5px" , color: "#000",}}>
             Overall score
           </p>
           <input
             type="text"
             placeholder="The rating scale is from 1 to 5."
-            style={{ width: "100%", padding: "10px", marginBottom: "30px" }}
+            style={{ width: "100%", padding: "10px", marginBottom: "30px" , color: "#000",}}
           />
 
           <div style={{ textAlign: "center" }}>
@@ -122,6 +125,7 @@ export default function PaperDetailReviewer({
           fontWeight: "bold",
           textAlign: "center",
           marginBottom: "30px",
+          color: "#000",
         }}
       >
         Paper Detail
@@ -133,6 +137,7 @@ export default function PaperDetailReviewer({
           margin: "0 auto",
           fontSize: "16px",
           lineHeight: "2",
+          color: "#000",
         }}
       >
         {/* Thông tin bài báo */}
@@ -182,7 +187,7 @@ export default function PaperDetailReviewer({
           >
             Abstract
           </div>
-          <div style={{ padding: "15px", textAlign: "justify" }}>
+          <div style={{ padding: "15px", textAlign: "justify", color: "#000", }}>
             {paper.abstract}
           </div>
         </div>

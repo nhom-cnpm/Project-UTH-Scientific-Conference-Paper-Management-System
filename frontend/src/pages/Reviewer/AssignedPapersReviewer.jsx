@@ -155,6 +155,7 @@ const AssignedPapersReviewer = () => {
           backgroundColor: "white",
           padding: "30px",
           borderRadius: "12px",
+          color: "#000",
         }}
       >
         <button
