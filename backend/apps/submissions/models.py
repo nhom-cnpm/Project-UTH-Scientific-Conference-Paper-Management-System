@@ -1,6 +1,5 @@
 from django.db import models
 
-<<<<<<< HEAD
 # Create your models here.
 class Submission(models.Model):
     STATUS_CHOICES = [
@@ -26,7 +25,4 @@ class Submission(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     class Meta:
-        indexes = [models.Index(fields=["status"]),]
-=======
-# Create your models here.
->>>>>>> main
+        indexes = [models.Index(fields=["status"]), models.Index(fields=["paper_id"]),]

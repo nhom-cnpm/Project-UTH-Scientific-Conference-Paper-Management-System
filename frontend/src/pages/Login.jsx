@@ -30,13 +30,10 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      {/* 1. THÊM DÒNG NÀY Ở ĐÂY */}
       <div className="header-bar">UTH - COMFMS</div>
-
       <div className="login-overlay">
         <div className="login-box">
           <h2>LOG IN TO THE SYSTEM</h2>
-
           <form onSubmit={handleSubmit}>
             <input
               type="text"
@@ -46,7 +43,6 @@ export default function Login() {
               onChange={handleChange}
               required
             />
-
             <input
               type="password"
               name="password"
@@ -55,10 +51,8 @@ export default function Login() {
               onChange={handleChange}
               required
             />
-
             <button type="submit">LOGIN</button>
           </form>
-
           <p className="forgot-password">FORGOT PASSWORD?</p>
         </div>
       </div>

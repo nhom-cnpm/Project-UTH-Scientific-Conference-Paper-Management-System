@@ -1,0 +1,50 @@
+/* Container chính của Sidebar */
+.sidebar-container {
+  width: 250px;
+  background-color: #f4f9f9; /* Màu nền xanh nhạt đặc trưng của layout */
+  height: 100vh;
+  padding: 20px 0; /* Xóa padding ngang để highlight có thể tràn lề */
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Danh sách menu */
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin-top: 50px;
+  width: 100%;
+}
+
+/* Từng mục trong menu */
+.menu-item {
+  padding: 12px 20px 12px 40px; /* Padding trái lớn để tạo khoảng trống */
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #333;
+  transition: all 0.3s ease;
+  border-radius: 0 25px 25px 0; /* Bo góc bên phải giống UI mẫu */
+  width: 90%; /* Không để tràn hết sang phải để tạo khoảng hở nhẹ */
+}
+
+/* Hiệu ứng khi di chuột qua */
+.menu-item:hover {
+  background-color: #eef2ff;
+  color: #3b82f6;
+}
+
+/* Trạng thái khi mục đó đang được chọn (Active) */
+.menu-item.active {
+  background-color: #e0e7ff; /* Màu xanh tím nhạt */
+  color: #3b82f6; /* Màu chữ xanh đậm */
+  font-weight: 600;
+  border-left: 4px solid #3b82f6; /* Thêm vạch kẻ bên trái để nhấn mạnh */
+}
+
+/* Mục Logout thường có màu khác hoặc khoảng cách riêng */
+.menu-item-logout {
+  margin-top: auto; /* Đẩy Logout xuống dưới cùng nếu cần */
+  color: #666;
+}
