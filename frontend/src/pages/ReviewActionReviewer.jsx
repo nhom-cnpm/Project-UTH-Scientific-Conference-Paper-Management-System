@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import COIConfirmModal from "../components/COIConfirmModal"; // Import modal vừa tạo
 
-const ReviewAction = () => {
+const ReviewActionReviewer = () => {
   // Thêm state để theo dõi việc mở modal COI
   const [isCOIOpen, setIsCOIOpen] = useState(false);
 

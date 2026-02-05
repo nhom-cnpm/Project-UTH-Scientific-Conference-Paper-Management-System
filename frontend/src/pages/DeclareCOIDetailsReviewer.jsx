@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import COIFinalConfirmModal from "../components/COIFinalConfirmModal"; // Import modal mới
 
-const DeclareCOIDetails = () => {
+const DeclareCOIDetailsReviewer = () => {
   const [isFinalModalOpen, setIsFinalModalOpen] = useState(false);
 
   const coiTypes = [

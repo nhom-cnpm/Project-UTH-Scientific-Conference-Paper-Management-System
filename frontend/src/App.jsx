@@ -16,10 +16,10 @@ import TrangcuaQtvien from "./pages/TrangcuaQtvien";
 import AdminQuanli from "./pages/AdminQuanli";
 import EditUser from "./pages/EditUser";
 
-import MainLayout from "./layouts/MainLayoutReviewer";
-import Dashboard from "./pages/DashboardReviewer";
-import AssignedPapers from "./pages/AssignedPapersReviewer";
-import ReviewAction from "./pages/ReviewActionReviewer";
+import MainLayoutReviewer from "./layouts/MainLayoutReviewer";
+import DashboardReviewer from "./pages/DashboardReviewer";
+import AssignedPapersReviewer from "./pages/AssignedPapersReviewer";
+import ReviewActionReviewer from "./pages/ReviewActionReviewer";
 import PaperDetailReviewer from "./pages/PaperDetailReviewer";
 import SubmitReview from "./pages/SubmitReview";
 import DeclineReview from "./pages/DeclineReview";
