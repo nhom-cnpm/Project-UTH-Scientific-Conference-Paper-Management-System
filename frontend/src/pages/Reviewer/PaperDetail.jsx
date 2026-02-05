@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { papers } from "../data/mockPapers";
-import ReviewForm from "../components/ReviewForm";
+import { papers } from "../../data/mockPapers";
+import ReviewForm from "../../components/ReviewForm";
 
 export default function PaperDetail() {
   const { id } = useParams();

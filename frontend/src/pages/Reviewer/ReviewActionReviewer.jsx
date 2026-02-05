@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import COIConfirmModal from "../components/COIConfirmModal"; // Import modal vừa tạo
+import COIConfirmModal from "../../components/COIConfirmModal"; // Import modal vừa tạo
 
 const ReviewActionReviewer = () => {
   // Thêm state để theo dõi việc mở modal COI

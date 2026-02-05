@@ -26,47 +26,81 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:3000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      /** * NOTE: Vì không dùng Backend, chúng ta giả lập dữ liệu trả về
+       * dựa trên sơ đồ Admin, Chair, Reviewer, Author, Guest.
+       */
+      const mockUsers = [
+        {
+          username: "admin",
+          password: "123",
+          role: "admin",
+          displayName: "Administrator",
         },
-        body: JSON.stringify(form),
-      });
+        {
+          username: "chair",
+          password: "123",
+          role: "chair",
+          displayName: "Program Chair",
+        },
+        {
+          username: "reviewer",
+          password: "123",
+          role: "reviewer",
+          displayName: "Reviewer PC",
+        },
+        {
+          username: "author",
+          password: "123",
+          role: "author",
+          displayName: "Author",
+        },
+      ];
 
-      const data = await res.json();
+      // Tìm tài khoản khớp với form
+      const user = mockUsers.find(
+        (u) => u.username === form.username && u.password === form.password,
+      );
 
-      if (!res.ok) {
-        throw new Error(data.message || "Login failed");
+      // Giả lập độ trễ mạng 0.5 giây
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+      if (!user) {
+        throw new Error("Invalid username or password");
       }
+
+      // Giả lập cấu trúc data trả về từ API
+      const data = {
+        token: "fake-jwt-token-for-testing",
+        role: user.role,
+        username: user.displayName,
+      };
 
       // ===== LƯU THÔNG TIN =====
       localStorage.setItem("token", data.token);
       localStorage.setItem("role", data.role);
       localStorage.setItem("username", data.username);
 
-      // ===== CHUYỂN TRANG THEO ROLE =====
+      // ===== CHUYỂN TRANG THEO ROLE (Khớp với App.jsx) =====
       switch (data.role) {
         case "admin":
-          navigate("/admin");
+          navigate("/admin/dashboard"); // Cần đảm bảo App.jsx có route này
           break;
 
         case "reviewer":
-          navigate("/reviewer");
+          navigate("/reviewer/assigned"); // Theo đường dẫn bạn đã fix lỗi import
           break;
 
         case "chair":
-          navigate("/chair");
+          navigate("/chair/workflow"); // Theo sơ đồ Chair Workflow của bạn
           break;
 
-        case "student":
-          navigate("/student");
+        case "author":
+          navigate("/author/submissions");
           break;
 
         default:
           navigate("/");
       }
-
     } catch (err) {
       setError(err.message);
     } finally {
@@ -106,7 +140,11 @@ export default function Login() {
             </button>
           </form>
 
-          {error && <p className="error">{error}</p>}
+          {error && (
+            <p className="error" style={{ color: "red", marginTop: "10px" }}>
+              {error}
+            </p>
+          )}
 
           <p className="forgot-password">FORGOT PASSWORD?</p>
         </div>

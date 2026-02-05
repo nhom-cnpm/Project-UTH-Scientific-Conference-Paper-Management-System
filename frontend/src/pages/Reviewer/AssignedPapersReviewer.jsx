@@ -31,7 +31,7 @@ const AssignedPapersReviewer = () => {
       conference: "UTH-COMFMS",
       track: "Software Engineering",
       submissionDate: "12/02/2026",
-      deadline: "COI",
+      deadline: "21/03/26",
       status: "COI",
       authors: "Trần Văn B – UTH",
       abstract:
@@ -44,7 +44,7 @@ const AssignedPapersReviewer = () => {
       conference: "UTH-COMFMS",
       track: "Internet of Things",
       submissionDate: "15/02/2026",
-      deadline: "COI",
+      deadline: "27/03/26",
       status: "Reviewed",
       authors: "Lê Thị C – UTH",
       abstract:

@@ -1,0 +1,6 @@
+[
+  { "email": "admin@uth.edu.vn", "password": "123", "role": "admin" },
+  { "email": "chair@uth.edu.vn", "password": "123", "role": "chair" },
+  { "email": "author@gmail.com", "password": "123", "role": "author" },
+  { "email": "reviewer@uth.edu.vn", "password": "123", "role": "reviewer" }
+]

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ConfirmModal from "../components/ConfirmModal"; // Sẽ tạo ở bước 3
+import ConfirmModal from "../../components/ConfirmModal"; // Sẽ tạo ở bước 3
 
 const SubmitReview = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

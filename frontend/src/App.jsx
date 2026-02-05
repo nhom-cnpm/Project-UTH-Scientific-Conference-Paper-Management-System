@@ -46,17 +46,17 @@ import AiLogs from "./pages/Admin/AI/AiLogs";
 import ChairWorkflow from "./pages/Chair/ChairWorkflow";
 
 /* ===== REVIEWER ===== */
-import ReviewerPaperList from "./pages/ReviewerPaperList";
-import PaperDetail from "./pages/PaperDetail";
+import ReviewerPaperList from "./pages/Reviewer/ReviewerPaperList";
+import PaperDetail from "./pages/Reviewer/PaperDetail";
 
 import MainLayoutReviewer from "./layouts/MainLayoutReviewer";
-import DashboardReviewer from "./pages/DashboardReviewer";
-import AssignedPapersReviewer from "./pages/AssignedPapersReviewer";
-import ReviewActionReviewer from "./pages/ReviewActionReviewer";
-import PaperDetailReviewer from "./pages/PaperDetailReviewer";
-import SubmitReview from "./pages/SubmitReview";
-import DeclineReview from "./pages/DeclineReview";
-import DeclareCOIDetailsReviewer from "./pages/DeclareCOIDetailsReviewer";
+import DashboardReviewer from "./pages/Reviewer/DashboardReviewer";
+import AssignedPapersReviewer from "./pages/Reviewer/AssignedPapersReviewer";
+import ReviewActionReviewer from "./pages/Reviewer/ReviewActionReviewer";
+import PaperDetailReviewer from "./pages/Reviewer/PaperDetailReviewer";
+import SubmitReview from "./pages/Reviewer/SubmitReview";
+import DeclineReview from "./pages/Reviewer/DeclineReview";
+import DeclareCOIDetailsReviewer from "./pages/Reviewer/DeclareCOIDetailsReviewer";
 
 function App() {
   return (
