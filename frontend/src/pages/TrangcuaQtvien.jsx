@@ -3,11 +3,19 @@ import { Link } from "react-router-dom";
 import "../styles/Qtrv.css";
 
 const Home = () => {
+  // Giả lập thông tin user đang đăng nhập
+  const user = {
+    id: 1,
+    name: "Quản trị viên"
+  };
+
   return (
     <div className="home-container">
       {/* Header */}
       <header className="header">
+        <Link to="/" className="logo-link">
         <div className="logo">UTH - COMFMS</div>
+        </Link>
 
         <nav className="nav">
           <Link to="/guide">HƯỚNG DẪN</Link>
@@ -15,7 +23,7 @@ const Home = () => {
           <Link to="/rule">QUY ĐỊNH</Link>
         </nav>
 
-        <button className="admin-btn">TÊN QUẢN TRỊ VIÊN</button>
+        <button className="admin-btn">{user.name}</button>
       </header>
 
       {/* Hero */}
@@ -34,15 +42,13 @@ const Home = () => {
       <section className="welcome-section">
         <div className="welcome-box">
           <p>
-            Chào mừng <b>“Tên quản trị viên”</b> trở lại
+            Chào mừng <b>{user.name}</b> trở lại
           </p>
 
-          <Link
-            to="/dashboard/conference-manage"
-            className="ConferenceManager"
-          >
-            Tại đây để chỉnh sửa
+          <Link to="/conference-manage" className="edit-link">
+          Tại đây để chỉnh sửa
           </Link>
+
         </div>
       </section>
 

@@ -1,0 +1,87 @@
+.chair-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.chair-sidebar {
+  width: 260px;
+  background: #f1f9f9;
+  padding: 20px;
+}
+
+.chair-sidebar h3 {
+  margin-bottom: 20px;
+}
+
+.chair-sidebar li {
+  list-style: none;
+  padding: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.chair-sidebar li:hover {
+  background: #b2e8e8;
+  border-radius: 10px;
+}
+
+/* MAIN */
+.chair-main {
+  flex: 1;
+  background: #eef2f5;
+  padding: 20px;
+}
+
+.chair-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* TABLE */
+.chair-table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+
+.chair-table th {
+  background: #2bb3b3;
+  color: white;
+  padding: 10px;
+}
+
+.chair-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* BUTTON */
+.btn-add {
+  background: #2bb3b3;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.btn-action {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+/* DASHBOARD */
+.stat-grid {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-box {
+  background: #f1f9f9;
+  padding: 10px;
+  border-radius: 10px;
+  width: 120px;
+  text-align: center;
+}
