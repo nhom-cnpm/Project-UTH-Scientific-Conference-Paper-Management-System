@@ -95,7 +95,7 @@ export default function Login() {
           break;
 
         case "author":
-          navigate("/author/submissions");
+          navigate("/author/mysubmissions");
           break;
 
         default:

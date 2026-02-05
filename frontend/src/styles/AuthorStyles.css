@@ -1,0 +1,73 @@
+.author-container {
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+/* Nút Submit màu xanh tím */
+.btn-submit-new {
+  background-color: #5d5fef;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.author-title {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* Table Styling */
+.submissions-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  overflow: hidden;
+}
+
+.submissions-table th {
+  background-color: #43b5ad; /* Màu xanh ngọc trong ảnh */
+  color: white;
+  padding: 15px;
+  font-weight: 500;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.submissions-table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  color: #444;
+}
+
+.submissions-table tr td:first-child {
+  border-right: 1px solid #eee;
+}
+
+/* Nút Detail màu đỏ cam phía dưới */
+.btn-detail {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 12px 45px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  margin: 40px auto 0;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.btn-detail:hover {
+  background-color: #fa5252;
+}

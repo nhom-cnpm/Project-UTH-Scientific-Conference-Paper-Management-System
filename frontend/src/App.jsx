@@ -57,7 +57,10 @@ import PaperDetailReviewer from "./pages/Reviewer/PaperDetailReviewer";
 import SubmitReview from "./pages/Reviewer/SubmitReview";
 import DeclineReview from "./pages/Reviewer/DeclineReview";
 import DeclareCOIDetailsReviewer from "./pages/Reviewer/DeclareCOIDetailsReviewer";
-
+/* ===== AUTHOR ===== */
+import AuthorLayout from "./layouts/AuthorLayout";
+import MySubmissionsAuthor from "./pages/Author/MySubmissionsAuthor";
+import SubmissionDetailAuthor from "./pages/Author/SubmissionDetailAuthor";
 function App() {
   return (
     <Router>
@@ -90,7 +93,14 @@ function App() {
             element={<DeclareCOIDetailsReviewer />}
           />
         </Route>
-
+        {/*AUTHOR*/}
+        <Route path="/author" element={<AuthorLayout />}>
+          <Route path="mysubmissions" element={<MySubmissionsAuthor />} />
+          <Route
+            path="submission-detail"
+            element={<SubmissionDetailAuthor />}
+          />
+        </Route>
         {/* FALLBACK */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
