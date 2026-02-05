@@ -1,11 +1,8 @@
-<<<<<<< HEAD
+
 // import React, { use } from "react";
-=======
 import React, { useEffect, useState } from "react";
->>>>>>> 1541c147e4d261a71268bf77a109a26716d1753b
 import { useNavigate } from "react-router-dom";
 
-import React, { useEffect, useState} from "react";
 
 const MySubmissionsAuthor = () => {
   const navigate = useNavigate();

@@ -1,14 +1,9 @@
-<<<<<<< HEAD
+
 // import React, { useState } from "react";
-=======
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
->>>>>>> 1541c147e4d261a71268bf77a109a26716d1753b
 import "../../styles/AuthorStyles.css";
-
-
-  import React, { useEffect, useState } from "react";
-  import "../../styles/AuthorStyles.css";
 
 
 const SubmissionDetailAuthor = () => {
