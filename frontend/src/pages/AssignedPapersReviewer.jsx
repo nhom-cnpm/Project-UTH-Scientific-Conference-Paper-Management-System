@@ -97,7 +97,6 @@ const AssignedPapersReviewer = () => {
     textAlign: "center",
   };
 
-  // Hàm hỗ trợ tạo style cho nút bấm ở trang chi tiết
   const actionButtonStyle = (color) => ({
     padding: "12px 25px",
     borderRadius: "10px",
@@ -108,7 +107,8 @@ const AssignedPapersReviewer = () => {
     fontSize: "15px",
     backgroundColor: color,
   });
-  //Điều hướng qua giao điện coi
+
+  // Điều hướng qua giao diện COI
   if (showCOIForm) {
     return (
       <DeclareCOIDetailsReviewer
@@ -116,11 +116,12 @@ const AssignedPapersReviewer = () => {
         onSubmitSuccess={() => {
           alert("COI Declared Successfully!");
           setShowCOIForm(false);
-          setSelectedPaper(null); // Quay về danh sách chính
+          setSelectedPaper(null);
         }}
       />
     );
   }
+
   // --- ĐIỀU HƯỚNG QUA GIAO DIỆN TỪ CHỐI ---
   if (showDeclineForm) {
     return (
@@ -129,12 +130,13 @@ const AssignedPapersReviewer = () => {
         onSubmitSuccess={() => {
           alert("Submitted Reason Successfully!");
           setShowDeclineForm(false);
-          setSelectedPaper(null); // Quay lại danh sách chính
+          setSelectedPaper(null);
         }}
       />
     );
   }
-  // --- điều hướng qua paper detail ---
+
+  // --- Điều hướng qua Paper Detail ---
   if (showFullDetail && selectedPaper) {
     return (
       <PaperDetailReviewer
@@ -144,6 +146,7 @@ const AssignedPapersReviewer = () => {
       />
     );
   }
+
   // --- GIAO DIỆN CHI TIẾT (Review Action) ---
   if (selectedPaper) {
     return (
@@ -209,6 +212,7 @@ const AssignedPapersReviewer = () => {
             }}
           >
             <span
+              onClick={() => setShowFullDetail(true)}
               style={{
                 color: "#4338ca",
                 cursor: "pointer",
@@ -275,7 +279,6 @@ const AssignedPapersReviewer = () => {
       >
         View Assigned Papers
       </h2>
-
       <table
         style={{
           width: "100%",
@@ -319,7 +322,6 @@ const AssignedPapersReviewer = () => {
               </td>
               <td style={tableCellStyle}>
                 <button
-                  // Bổ sung sự kiện onClick để chọn bài báo
                   onClick={() => setSelectedPaper(paper)}
                   style={{
                     color: "#4338ca",

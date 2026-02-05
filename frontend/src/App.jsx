@@ -57,6 +57,7 @@ import PaperDetailReviewer from "./pages/PaperDetailReviewer";
 import SubmitReview from "./pages/SubmitReview";
 import DeclineReview from "./pages/DeclineReview";
 import DeclareCOIDetailsReviewer from "./pages/DeclareCOIDetailsReviewer";
+
 function App() {
   return (
     <Router>
@@ -70,12 +71,9 @@ function App() {
         <Route path="/adminPhanquyen" element={<TrangcuaQtvien />} />
         <Route path="/conference-manage" element={<AdminQuanli />} />
         <Route path="/conference-manage/edit" element={<EditUser />} />
-<<<<<<< HEAD
-=======
-    q
->>>>>>> 657b3a42f22dea309e82340c5ef6dac1e0d1390a
+
         {/* CHAIR */}
-        <Route path="/chair" element={<ChairLayout />} />
+        <Route path="/chair" element={<ChairWorkflow />} />
 
         {/* REVIEWER */}
         <Route path="/reviewer" element={<ReviewerLayout />}>
