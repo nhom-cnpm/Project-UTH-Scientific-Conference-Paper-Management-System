@@ -7,12 +7,10 @@ import sys
 # ========================
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-# cho phép import apps/*
+
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
-# ========================
-# CORE SETTINGS
-# ========================
+
 SECRET_KEY = 'dev-secret-key'
 DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
