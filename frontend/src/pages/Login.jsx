@@ -37,6 +37,12 @@ export default function Login() {
           displayName: "Administrator",
         },
         {
+          username: "guest",
+          password: "123",
+          role: "guest",
+          displayName: "Guest",
+        },
+        {
           username: "chair",
           password: "123",
           role: "chair",
@@ -86,6 +92,9 @@ export default function Login() {
           navigate("/admin/dashboard"); // Cần đảm bảo App.jsx có route này
           break;
 
+        case "guest":
+          navigate("/pages/home"); // Cần đảm bảo App.jsx có route này
+          break;
         case "reviewer":
           navigate("/reviewer/assigned"); // Theo đường dẫn bạn đã fix lỗi import
           break;
