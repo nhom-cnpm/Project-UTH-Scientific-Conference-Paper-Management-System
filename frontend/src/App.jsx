@@ -48,6 +48,26 @@ import EditProfile from "./pages/Author/EditProfile";
 import NotificationAuthor from "./pages/Author/NotificationAuthor";
 import { SubmissionProvider } from "./pages/Author/SubmissionContext";
 
+/* ===== Admin ===== */
+import AiLogs from "./pages/Admin/AI/AiLogs";
+import AiOverview from "./pages/Admin/AI/AiOverview";
+import AiToggle from "./pages/Admin/AI/AiToggle";
+
+import CreateConference from "./pages/Admin/conference/CreateConference";
+import DeleteConference from "./pages/Admin/conference/DeleteConference";
+import ListConference from "./pages/Admin/conference/ListConference";
+import UpdateConference from "./pages/Admin/conference/UpdateConference";
+
+import RbacManagement from "./pages/Admin/rbac/RbacManagement";
+
+import AuditLogs from "./pages/Admin/system/AuditLogs";
+import Backup from "./pages/Admin/system/Backup";
+import EmailQta from "./pages/Admin/system/EmailQta";
+import Restore from "./pages/Admin/system/Restore";
+import SmtpConfig from "./pages/Admin/system/SmtpConfig";
+import SystemOverview from "./pages/Admin/system/SystemOverview";
+
+
 function App() {
   return (
     <SubmissionProvider>
@@ -57,11 +77,38 @@ function App() {
           <Route path="/" element={<Trangchu />} />
           <Route path="/login" element={<Login />} />
 
-          {/* ADMIN */}
-          <Route path="/admin" element={<TrangcuaQtvien />} />
-          <Route path="/adminPhanquyen" element={<TrangcuaQtvien />} />
-          <Route path="/conference-manage" element={<AdminQuanli />} />
-          <Route path="/conference-manage/edit" element={<EditUser />} />
+           {/* ===== ADMIN ===== */}
+         <Route path="/admin" element={<AdminQuanli />}>
+          
+          {/* 1. Module Hội nghị (Mặc định hiển thị danh sách) */}
+          <Route index element={<ListConference />} />
+          <Route path="conference/create" element={<CreateConference />} />
+          <Route path="conference/update/:id" element={<UpdateConference />} />
+          <Route path="conference/delete/:id" element={<DeleteConference />} />
+
+          {/* 2. Module RBAC */}
+          <Route path="rbac" element={<RbacManagement />} />
+
+          {/* 3. Module AI */}
+          <Route path="ai" element={
+            <>
+              <AiToggle />
+              <AiOverview />
+              <AiLogs />
+            </>
+          } />
+
+          {/* 4. Module System (Nested Routes bên trong System) */}
+          <Route path="system">
+            <Route index element={<SystemOverview />} />
+            <Route path="smtp" element={<SmtpConfig />} />
+            <Route path="email-quota" element={<EmailQta />} />
+            <Route path="audit-logs" element={<AuditLogs />} />
+            <Route path="backup" element={<Backup />} />
+            <Route path="restore" element={<Restore />} />
+          </Route>  
+          </Route>Route
+
 
           {/* CHAIR */}
           <Route path="/chair" element={<ChairWorkflow />} />

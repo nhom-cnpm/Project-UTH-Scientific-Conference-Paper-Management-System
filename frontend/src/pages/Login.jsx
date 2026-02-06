@@ -89,7 +89,7 @@ export default function Login() {
       // ===== CHUYỂN TRANG THEO ROLE (Khớp với App.jsx) =====
       switch (data.role) {
         case "admin":
-          navigate("/admin/dashboard"); // Cần đảm bảo App.jsx có route này
+          navigate("/admin/"); // Cần đảm bảo App.jsx có route này
           break;
 
         case "guest":
