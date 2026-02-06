@@ -25,7 +25,7 @@ const CreateConference = () => {
     try {
       await conferenceApi.createConference(formData);
       alert(" Tạo hội nghị thành công!");
-      navigate("/conference/list");
+      navigate("/admin");
     } catch (err) {
       alert(" Có lỗi xảy ra!");
     } finally {

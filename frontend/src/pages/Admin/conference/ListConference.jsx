@@ -14,7 +14,7 @@ const ListConference = () => {
     <div className="list-conference-container">
       <div className="list-header">
         <h2>Danh sách hội nghị</h2>
-        <button onClick={() => navigate("/conference-manage/conference/create")}>
+        <button onClick={() => navigate("/admin/conference/create")}>
           + Tạo hội nghị
         </button>
       </div>
