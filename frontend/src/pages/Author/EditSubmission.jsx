@@ -7,9 +7,26 @@ const EditSubmission = () => {
   // State mới để hiện thông báo đã replace file
   const [showSuccessMsg, setShowSuccessMsg] = useState(false);
 
+  const createSystemNotification = (message) => {
+    const savedNoti =
+      JSON.parse(localStorage.getItem("authorNotifications")) || [];
+    const newNoti = {
+      message: message,
+      date:
+        new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
+    };
+    localStorage.setItem(
+      "authorNotifications",
+      JSON.stringify([newNoti, ...savedNoti]),
+    );
+  };
+
   const handleReplacePDF = () => {
     // Giả lập logic replace file thành công
     setShowSuccessMsg(true);
+    createSystemNotification(
+      "You have successfully replaced the PDF file for Paper",
+    );
 
     // Sau 3 giây thì ẩn thông báo đi
     setTimeout(() => {
@@ -22,6 +39,9 @@ const EditSubmission = () => {
   };
 
   const confirmSave = () => {
+    createSystemNotification(
+      "Submission metadata for Paper  has been updated.",
+    );
     setShowConfirm(false);
     navigate("/author/submission-detail");
   };

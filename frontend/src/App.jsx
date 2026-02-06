@@ -45,6 +45,7 @@ import ViewReviewer from "./pages/Author/ViewReviewer";
 import ViewDecision from "./pages/Author/ViewDecision";
 import PersonalProfile from "./pages/Author/PersonalProfile";
 import EditProfile from "./pages/Author/EditProfile";
+import NotificationAuthor from "./pages/Author/NotificationAuthor";
 import { SubmissionProvider } from "./pages/Author/SubmissionContext";
 
 function App() {
@@ -95,7 +96,7 @@ function App() {
             <Route path="create-submission" element={<CreateSubmission />} />
             <Route path="personal-profile" element={<PersonalProfile />} />
             <Route path="edit-profile" element={<EditProfile />} />
-
+            <Route path="notifications" element={<NotificationAuthor />} />
             <Route path="*" element={<Navigate to="/author" />} />
           </Route>
 

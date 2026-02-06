@@ -1,20 +1,45 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom"; // Thêm useLocation
 
 const UploadCameraReady = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Nhận dữ liệu bài viết từ trang trước truyền sang
+  const paper = location.state?.paperData || { id: "Unknown" };
+
+  // Hàm tạo thông báo lưu vào localStorage
+  const createSystemNotification = (message) => {
+    const savedNoti =
+      JSON.parse(localStorage.getItem("authorNotifications")) || [];
+    const newNoti = {
+      message: message,
+      date:
+        new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
+    };
+    localStorage.setItem(
+      "authorNotifications",
+      JSON.stringify([newNoti, ...savedNoti]),
+    );
+  };
 
   const handleUpload = () => {
-    // 1. Bạn có thể thêm logic xử lý file thực tế ở đây
-    alert("File uploaded successfully!");
+    // 1. Logic xử lý upload thực tế
+    alert(`File for Paper ${paper.id} uploaded successfully!`);
 
-    // 2. Sau khi upload xong, quay lại trang My Submission
+    // 2. GỬI THÔNG BÁO VỀ HỆ THỐNG
+    // Sử dụng dấu backtick để chèn ID động
+    createSystemNotification(
+      `You have successfully uploaded the Camera-ready version for Paper`,
+    );
+
+    // 3. Quay lại trang My Submission
     navigate("/author");
   };
 
   return (
     <div style={{ padding: "20px", maxWidth: "900px" }}>
-      {/* Nút quay lại thủ công */}
+      {/* Nút quay lại */}
       <div
         style={{
           display: "flex",
@@ -26,14 +51,14 @@ const UploadCameraReady = () => {
         onClick={() => navigate(-1)}
       >
         <span style={{ fontSize: "24px", marginRight: "10px" }}>←</span>
-        <span style={{ fontSize: "24px" }}>→</span>
+        <span style={{ fontSize: "24px" }}>Back</span>
       </div>
 
       <h2 style={{ marginBottom: "20px" }}>Upload Camera-ready</h2>
 
       <div style={{ marginBottom: "30px", lineHeight: "1.5" }}>
         <p style={{ fontWeight: "500", margin: 0 }}>
-          Congratulations! Your paper has been accepted.
+          Congratulations! Your paper (ID: {paper.id}) has been accepted.
         </p>
         <p>
           Please upload the final camera-ready version (PDF) of your paper
@@ -55,7 +80,6 @@ const UploadCameraReady = () => {
         </p>
 
         <div style={{ display: "flex", gap: "40px", alignItems: "center" }}>
-          {/* Vùng icon upload */}
           <div
             style={{
               flex: 1,
@@ -72,7 +96,6 @@ const UploadCameraReady = () => {
             </div>
           </div>
 
-          {/* Thông số file */}
           <div style={{ width: "250px", fontSize: "16px", lineHeight: "2.5" }}>
             <div>
               Accpetable format: <strong>PDF</strong>
@@ -83,7 +106,6 @@ const UploadCameraReady = () => {
           </div>
         </div>
 
-        {/* NÚT UPLOAD XỬ LÝ ĐIỀU HƯỚNG */}
         <div
           style={{
             display: "flex",
@@ -91,25 +113,24 @@ const UploadCameraReady = () => {
             marginTop: "40px",
           }}
         >
-          <button
-            onClick={handleUpload}
-            style={{
-              backgroundColor: "#0052ff",
-              color: "white",
-              border: "none",
-              padding: "10px 60px",
-              borderRadius: "4px",
-              fontSize: "18px",
-              fontWeight: "500",
-              cursor: "pointer",
-            }}
-          >
+          <button onClick={handleUpload} style={uploadButtonStyle}>
             Upload
           </button>
         </div>
       </div>
     </div>
   );
+};
+
+const uploadButtonStyle = {
+  backgroundColor: "#0052ff",
+  color: "white",
+  border: "none",
+  padding: "10px 60px",
+  borderRadius: "4px",
+  fontSize: "18px",
+  fontWeight: "500",
+  cursor: "pointer",
 };
 
 export default UploadCameraReady;

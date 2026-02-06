@@ -64,7 +64,26 @@ const AuthorLayout = () => {
             My submission
           </div>
 
-          <div style={navItemStyle}>Notification</div>
+          <div
+            style={{
+              ...navItemStyle,
+              // Đổi màu khi đang ở trang notification
+              backgroundColor: location.pathname.includes("notifications")
+                ? "#e0e7ff"
+                : "transparent",
+              color: location.pathname.includes("notifications")
+                ? "#4f46e5"
+                : "#333",
+              borderRadius: "0 20px 20px 0",
+              width: "85%",
+              fontWeight: location.pathname.includes("notifications")
+                ? "bold"
+                : "normal",
+            }}
+            onClick={() => navigate("/author/notifications")} // CỰC KỲ QUAN TRỌNG: Thêm dòng này để điều hướng
+          >
+            Notification
+          </div>
 
           {/* PERSONAL PROFILE - ĐÃ THÊM LOGIC BẤM ĐƯỢC */}
           <div

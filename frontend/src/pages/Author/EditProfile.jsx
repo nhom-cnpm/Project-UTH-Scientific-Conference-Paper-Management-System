@@ -15,7 +15,24 @@ const EditProfile = () => {
   };
 
   const handleSave = () => {
+    // 1. Lưu thông tin cá nhân mới
     localStorage.setItem("authorProfile", JSON.stringify(formData));
+
+    // 2. TỰ ĐỘNG TẠO THÔNG BÁO
+    const savedNoti =
+      JSON.parse(localStorage.getItem("authorNotifications")) || [];
+    const newNoti = {
+      message: "Personal information has been updated successfully.", // Nội dung thông báo
+      date:
+        new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(), // Ngày gửi
+    };
+
+    // Lưu thông báo mới lên đầu danh sách
+    localStorage.setItem(
+      "authorNotifications",
+      JSON.stringify([newNoti, ...savedNoti]),
+    );
+
     alert("Cập nhật thông tin thành công!");
     navigate("/author/personal-profile");
   };
@@ -106,6 +123,7 @@ const EditProfile = () => {
   );
 };
 
+// ... giữ nguyên các biến style bên dưới ...
 const inputStyle = {
   width: "100%",
   padding: "10px",
